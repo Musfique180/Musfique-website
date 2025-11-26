@@ -32,10 +32,10 @@
 
     body {
       font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      font-size: 16px;
       background: var(--bg);
       color: var(--text);
       line-height: 1.7;
+      font-size: 16px;
     }
 
     a { color: var(--accent); text-decoration: none; }
@@ -56,83 +56,28 @@
       margin: 0 auto;
       padding: 0.7rem 1.6rem;
       display: flex;
-      align-items: center;
       justify-content: center;
     }
 
-    .nav-links {
-      display: flex;
-      gap: 1.6rem;
-      font-size: 0.98rem;
-      font-weight: 500;
-    }
+    .nav-links { display: flex; gap: 1.6rem; font-weight: 500; }
 
-    .nav-links a {
-      color: var(--muted);
-    }
+    .nav-links a { color: var(--muted); }
+    .nav-links a:hover { color: var(--accent); }
 
-    .nav-links a:hover {
-      color: var(--accent);
-    }
-
-    .nav-menu-toggle {
-      display: none;
-    }
-
-    @media (max-width: 780px) {
-      .nav-inner {
-        justify-content: space-between;
-      }
-      .nav-links {
-        display: none;
-      }
-      .nav-menu-toggle {
-        display: block;
-        font-size: 1.3rem;
-        background: none;
-        border: none;
-        color: var(--muted);
-        cursor: pointer;
-      }
-      header.open .nav-links {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: #ffffff;
-        border-bottom: 1px solid #e2ddd7;
-        display: flex;
-        flex-direction: column;
-        gap: 0.7rem;
-        padding: 0.7rem 1.6rem 1rem;
-      }
-    }
-
-    /* HERO */
+    /* HERO SECTION */
     .hero-wrapper {
       background: linear-gradient(180deg, var(--hero-top), var(--hero-bottom));
-      padding-top: 4rem; /* nav offset */
+      padding-top: 6rem;
     }
 
     .hero {
       max-width: var(--max-width);
       margin: 0 auto;
-      min-height: calc(100vh - 4rem);
-      padding: 3rem 1.6rem 3.2rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      padding: 3rem 1.6rem 3rem;
       text-align: center;
-      position: relative;
     }
 
-    .hero-content {
-      max-width: 640px;
-      position: relative;
-      z-index: 1;
-    }
-
-    /* Profile image */
+    /* Larger profile image */
     .hero-avatar {
       width: 260px;
       height: 260px;
@@ -146,285 +91,147 @@
     }
 
     .hero-chip {
-      display: inline-flex;
-      padding: 0.38rem 1.2rem;
+      display: inline-block;
+      padding: 0.35rem 1.2rem;
       border-radius: 999px;
       background: var(--chip-bg);
       border: 1px solid #e1d4c4;
       font-size: 0.85rem;
+      margin-bottom: 1rem;
       color: var(--muted-soft);
-      margin-bottom: 0.9rem;
-      font-weight: 500;
     }
 
-    /* Hero name */
+    /* HERO NAME — FIXED CENTERING */
     .hero-name {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(2.7rem, 4.8vw, 4rem);
+      font-size: clamp(2.4rem, 4vw, 3.5rem);
       font-weight: 700;
       line-height: 1.15;
-      margin-top: 1.2rem;
-      margin-bottom: 0.4rem;
       color: #2b2b2b;
+
+      /* Center the whole name block */
+      max-width: 18ch;
+      margin: 1.4rem auto 0.4rem;
       text-align: center;
     }
 
-    /* Two-line name layout */
-.hero-name .name-line1,
-.hero-name .name-line2 {
-  display: block;
-  width: 100%;
-  text-align: center;
-}
+    .hero-name .name-line1,
+    .hero-name .name-line2 {
+      display: block;
+      width: 100%;
+      text-align: center;
+    }
 
-.hero-name .name-line1 {
-  white-space: nowrap;      /* Keeps entire first line together */
-}
-
-.hero-name .name-line2 {
-  margin-top: 0.25rem;      /* Space between lines */
-}
+    .hero-name .name-line1 { white-space: nowrap; }
+    .hero-name .name-line2 { margin-top: 0.25rem; }
 
     .hero-name .highlight {
       color: var(--accent);
       font-weight: 800;
     }
 
+    /* Buttons */
     .hero-buttons {
       display: flex;
-      flex-wrap: wrap;
       justify-content: center;
       gap: 0.8rem;
-      margin-bottom: 1.1rem;
+      margin: 1.2rem 0;
     }
 
     .btn {
-      border-radius: 999px;
       padding: 0.6rem 1.4rem;
-      font-size: 0.94rem;
+      border-radius: 999px;
       font-weight: 500;
       border: 1px solid transparent;
       cursor: pointer;
-      transition: all 0.18s ease-out;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.3rem;
       text-decoration: none;
-      white-space: nowrap;
     }
 
     .btn-primary {
       background: var(--accent);
-      border-color: var(--accent-soft);
-      color: #ffffff;
+      color: #fff;
       box-shadow: 0 10px 22px rgba(70, 44, 22, 0.25);
     }
 
-    .btn-primary:hover {
-      background: var(--accent-soft);
-      transform: translateY(-1px);
-    }
-
     .btn-outline {
-      background: #ffffff;
-      border-color: #d7cec4;
+      background: #fff;
+      border: 1px solid #d7cec4;
       color: var(--muted);
     }
 
-    .btn-outline:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-      transform: translateY(-1px);
-    }
-
-    .hero-submeta {
-      font-size: 0.9rem;
-      color: var(--muted-soft);
-      margin-top: 0.2rem;
-    }
-
-    /* MAIN SECTIONS */
-    main { background: var(--bg); }
-
+    /* SECTIONS */
     .section {
       max-width: var(--max-width);
       margin: 0 auto;
       padding: 3rem 1.6rem 0;
     }
 
-    /* Section titles */
     .section-title {
-      font-size: 1.18rem;
-      font-weight: 700;
+      font-size: 1.25rem;
       text-transform: uppercase;
       letter-spacing: 0.11em;
       color: var(--muted-soft);
       margin-bottom: 1.1rem;
-      display: inline-flex;
+      display: flex;
       align-items: center;
-      gap: 0.6rem;
+      gap: 0.5rem;
     }
 
-    .section-title::before {
+    .section-title:before {
       content: "";
       width: 40px;
       height: 2px;
-      border-radius: 999px;
       background: var(--accent);
+      border-radius: 999px;
     }
 
     .card {
       background: var(--bg-alt);
-      border-radius: var(--card-radius);
+      padding: 1.7rem;
+      border-radius: 16px;
       border: 1px solid var(--border-soft);
-      padding: 1.7rem 1.8rem;
       box-shadow: 0 12px 32px rgba(0,0,0,0.06);
       margin-bottom: 1.6rem;
-      font-size: 0.96rem;
     }
 
-    h3 {
-      font-family: "Playfair Display", serif;
-      font-size: 1.08rem;
-      margin-bottom: 0.35rem;
-      color: #3a322c;
-    }
-
-    .muted {
-      color: var(--muted-soft);
-      font-size: 0.9rem;
-    }
-
-    ul {
-      padding-left: 1.1rem;
-      margin-top: 0.4rem;
-      font-size: 0.94rem;
-    }
-
-    li + li { margin-top: 0.3rem; }
-
-    .pill-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.45rem;
-      margin-top: 0.6rem;
-    }
-
-    .pill {
-      border-radius: 999px;
-      border: 1px solid #ddd2c5;
-      font-size: 0.82rem;
-      padding: 0.25rem 0.65rem;
-      color: var(--muted);
-      background: #faf7f3;
-    }
-
-    /* TIMELINE – animated vertical layout */
-    .timeline {
-      position: relative;
-      margin-top: 0.5rem;
-      padding-left: 1.5rem;
-    }
-
+    /* TIMELINE ANIMATION */
+    .timeline { position: relative; padding-left: 1.5rem; }
     .timeline-line {
       position: absolute;
-      left: 12px;
       top: 0;
       bottom: 0;
+      left: 12px;
       width: 2px;
       background: rgba(114, 149, 112, 0.5);
     }
-
     .timeline-item {
-      position: relative;
-      margin-bottom: 1.6rem;
       opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.45s ease-out, transform 0.45s ease-out;
+      transform: translateY(26px);
+      transition: 0.5s;
+      margin-bottom: 1.6rem;
     }
-
     .timeline-item.visible {
       opacity: 1;
       transform: translateY(0);
     }
 
-    .timeline-dot {
-      position: absolute;
-      left: 3px;
-      top: 18px;
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: #4a8f5b;
-      border: 3px solid #e5f2e7;
-      box-shadow: 0 0 0 4px rgba(74, 143, 91, 0.15);
-    }
-
-    .timeline-card {
-      margin-left: 26px;
-      background: #ffffff;
-      border-radius: 14px;
-      border: 1px solid #e1e6df;
-      padding: 1.1rem 1.2rem;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.04);
-    }
-
-    .badge-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-bottom: 0.45rem;
-      font-size: 0.78rem;
-    }
-
-    .badge {
-      padding: 0.15rem 0.55rem;
-      border-radius: 999px;
-      background: #f2f7f1;
-      color: #486c4c;
-      border: 1px solid #d2e4cf;
-      font-weight: 500;
-    }
-
-    .badge-muted {
-      background: #f3eee9;
-      color: #7b7066;
-      border-color: #e0d4c7;
-    }
-
-    .timeline-title {
-      font-weight: 600;
-      margin-bottom: 0.15rem;
-      font-size: 0.98rem;
-      color: #2f2a25;
-    }
-
-    .timeline-sub {
-      font-size: 0.9rem;
-      color: var(--muted-soft);
-    }
-
-    footer {
-      text-align: center;
-      padding: 2rem 1.6rem 2.2rem;
-      color: var(--muted-soft);
-      font-size: 0.86rem;
-      background: #f0ebe4;
-      border-top: 1px solid #dfd5c9;
-      margin-top: 3rem;
-    }
-
-    /* ===== Scroll reveal animation for sections & cards ===== */
+    /* Scroll reveal for sections */
     .reveal {
       opacity: 0;
       transform: translateY(26px);
-      transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+      transition: 0.6s ease-out;
     }
-
     .reveal.visible {
       opacity: 1;
       transform: translateY(0);
+    }
+
+    footer {
+      margin-top: 3rem;
+      padding: 2rem;
+      background: #f0ebe4;
+      text-align: center;
+      color: var(--muted-soft);
     }
   </style>
 </head>
@@ -439,163 +246,108 @@
       <a href="#publications">Publications</a>
       <a href="#projects">Projects</a>
       <a href="#skills">Skills</a>
-      <a href="#training">Training &amp; Activities</a>
+      <a href="#training">Training & Activities</a>
       <a href="#contact">Contact</a>
     </nav>
-    <button class="nav-menu-toggle"
-      onclick="document.querySelector('header').classList.toggle('open')"
-      aria-label="Toggle navigation">☰</button>
   </div>
 </header>
 
 <section class="hero-wrapper">
-  <div class="hero">
-    <div class="hero-content">
-      <img
-        class="hero-avatar"
-        src="https://raw.githubusercontent.com/Musfique180/Musfique-website/main/IMG-20250515-WA0202~2%20(1)%20(1).jpg"
-        alt="Mohammed Musfique Ahmed Chowdhury"
-      />
+  <div class="hero reveal">
+    <img
+      class="hero-avatar"
+      src="https://raw.githubusercontent.com/Musfique180/Musfique-website/main/IMG-20250515-WA0202~2%20(1)%20(1).jpg"
+      alt="Mohammed Musfique Ahmed Chowdhury"
+    />
 
-      <div class="hero-chip">Electrical &amp; Electronic Engineering Graduate</div>
+    <div class="hero-chip">Electrical & Electronic Engineering Graduate</div>
 
-      <!-- Two-line name -->
-   <h1 class="hero-name">
-  <span class="name-line1">
-    Mohammed <span class="highlight">Musfique</span> Ahmed
-  </span>
-  <span class="name-line2">
-    Chowdhury
-  </span>
-</h1>
+    <!-- Name in two lines -->
+    <h1 class="hero-name">
+      <span class="name-line1">
+        Mohammed <span class="highlight">Musfique</span> Ahmed
+      </span>
+      <span class="name-line2">Chowdhury</span>
+    </h1>
 
-
-
-
-      <div class="hero-buttons" style="margin-top: 1.2rem;">
-        <a
-          class="btn btn-primary"
-          href="https://drive.google.com/file/d/1hr8FjNgkM1RtTYowJpcsak1SseIwYMJj/view?usp=sharing"
-          target="_blank" rel="noopener noreferrer"
-        >
-          Download CV
-        </a>
-        <a class="btn btn-outline" href="#contact">Contact Me</a>
-      </div>
-
-      <p class="hero-submeta" style="margin-top: 0.4rem;">
-        BSc in Electrical &amp; Electronic Engineering, Ahsanullah University of Science and Technology (AUST), Dhaka.
-      </p>
+    <div class="hero-buttons">
+      <a class="btn btn-primary"
+         href="https://drive.google.com/file/d/1hr8FjNgkM1RtTYowJpcsak1SseIwYMJj/view?usp=sharing"
+         target="_blank">Download CV</a>
+      <a class="btn btn-outline" href="#contact">Contact Me</a>
     </div>
+
+    <p class="hero-submeta">
+      BSc in Electrical & Electronic Engineering, AUST, Dhaka.
+    </p>
   </div>
 </section>
 
 <main>
+
   <!-- ABOUT -->
-  <section id="about" class="section">
+  <section id="about" class="section reveal">
     <h2 class="section-title">About Me</h2>
     <div class="card">
       <p>
         I am Mohammed Musfique Ahmed Chowdhury, an Electrical and Electronic
-        Engineering graduate from Ahsanullah University of Science and Technology
-        (AUST), Bangladesh. My academic training, combined with extensive project
-        work, has given me a strong foundation in power systems, power electronics,
-        VLSI design, control systems, and digital signal processing.
+        Engineering graduate from AUST, Bangladesh. My academic journey and
+        hands-on project experience have built a strong foundation in power
+        systems, VLSI, embedded systems, and signal processing.
       </p>
       <p style="margin-top:0.7rem;">
-        I enjoy working on interdisciplinary problems at the intersection of
-        embedded systems, imaging, and renewable energy. My undergraduate thesis
-        on the design and development of a low-cost telescope under adverse
-        environmental conditions allowed me to combine optical design, electronics,
-        and image processing for practical astronomical applications.
+        My undergraduate thesis—developing a low-cost telescope capable of
+        operating in adverse environmental conditions—allowed me to combine
+        optics, electronics, and image processing into a single engineering system.
       </p>
       <p style="margin-top:0.7rem;">
-        Through academic projects, training programs, and departmental activities,
-        I have developed strong communication, teamwork, and leadership skills.
-        I am now preparing for doctoral studies, aiming to contribute to research
-        in intelligent energy systems and sensing-driven applications.
+        With strong communication, teamwork, and leadership skills, I am now
+        preparing for doctoral studies in intelligent energy systems and
+        sensing-driven applications.
       </p>
     </div>
   </section>
 
   <!-- TIMELINE -->
-  <section id="timeline" class="section">
+  <section id="timeline" class="section reveal">
     <h2 class="section-title">Academic Journey</h2>
     <div class="card">
-      <p class="muted" style="margin-bottom:0.8rem;">
-        Timeline of key educational milestones and academic achievements.
-      </p>
-
       <div class="timeline">
         <div class="timeline-line"></div>
 
         <div class="timeline-item">
-          <div class="timeline-dot"></div>
           <div class="timeline-card">
-            <div class="badge-row">
-              <span class="badge">2010 – 2016</span>
-              <span class="badge badge-muted">Education</span>
-            </div>
-            <div class="timeline-title">Secondary School Certificate</div>
-            <div class="timeline-sub">
-              Chittagong Collegiate School · GPA 5.00 (Science)
-            </div>
+            <div><strong>2010–2016</strong> · Secondary School Certificate</div>
+            <div class="muted">Chittagong Collegiate School · GPA 5.00</div>
           </div>
         </div>
 
         <div class="timeline-item">
-          <div class="timeline-dot"></div>
           <div class="timeline-card">
-            <div class="badge-row">
-              <span class="badge">2016 – 2018</span>
-              <span class="badge badge-muted">Education</span>
-            </div>
-            <div class="timeline-title">Higher Secondary Certificate</div>
-            <div class="timeline-sub">
-              Chittagong College · GPA 4.75 (Science)
-            </div>
+            <div><strong>2016–2018</strong> · Higher Secondary Certificate</div>
+            <div class="muted">Chittagong College · GPA 4.75</div>
           </div>
         </div>
 
         <div class="timeline-item">
-          <div class="timeline-dot"></div>
           <div class="timeline-card">
-            <div class="badge-row">
-              <span class="badge">2019</span>
-              <span class="badge badge-muted">Milestone</span>
-            </div>
-            <div class="timeline-title">Started University</div>
-            <div class="timeline-sub">
-              Began BSc in Electrical &amp; Electronic Engineering at AUST.
-            </div>
+            <div><strong>2019</strong> · Began BSc in EEE</div>
+            <div class="muted">Ahsanullah University of Science & Technology</div>
           </div>
         </div>
 
         <div class="timeline-item">
-          <div class="timeline-dot"></div>
           <div class="timeline-card">
-            <div class="badge-row">
-              <span class="badge">2023</span>
-              <span class="badge badge-muted">Education</span>
-            </div>
-            <div class="timeline-title">Completed Bachelor’s Degree</div>
-            <div class="timeline-sub">
-              BSc in Electrical &amp; Electronic Engineering (EEE), AUST.
-            </div>
+            <div><strong>2023</strong> · Bachelor’s Degree Completed</div>
+            <div class="muted">EEE, AUST</div>
           </div>
         </div>
 
         <div class="timeline-item">
-          <div class="timeline-dot"></div>
           <div class="timeline-card">
-            <div class="badge-row">
-              <span class="badge">2023</span>
-              <span class="badge badge-muted">Thesis</span>
-            </div>
-            <div class="timeline-title">Undergraduate Thesis</div>
-            <div class="timeline-sub">
-              Design, Development and Testing of a Low-Cost Telescope under
-              Adverse Environmental Conditions.
+            <div><strong>2023</strong> · Undergraduate Thesis</div>
+            <div class="muted">
+              Low-cost telescope development under adverse environmental conditions
             </div>
           </div>
         </div>
@@ -603,177 +355,109 @@
     </div>
   </section>
 
-  <!-- RESEARCH -->
-  <section id="research" class="section">
+  <!-- RESEARCH INTERESTS -->
+  <section id="research" class="section reveal">
     <h2 class="section-title">Research Interests</h2>
     <div class="card">
-      <p class="muted">
-        I am particularly interested in problems at the intersection of embedded
-        intelligence, sensing, and sustainable energy systems.
-      </p>
       <div class="pill-row">
-        <span class="pill">Embedded Systems for Imaging</span>
-        <span class="pill">Image Processing &amp; Computer Vision</span>
+        <span class="pill">Embedded Imaging Systems</span>
+        <span class="pill">Image Processing & Computer Vision</span>
         <span class="pill">Renewable Energy Systems</span>
         <span class="pill">Battery Energy Storage (BESS)</span>
-        <span class="pill">Hybrid Energy Storage (HESS)</span>
-        <span class="pill">Biomass &amp; Biofuel Technologies</span>
-        <span class="pill">Smart Grid &amp; Optimization</span>
+        <span class="pill">Hybrid Storage (HESS)</span>
+        <span class="pill">Biomass & Biofuel Technologies</span>
+        <span class="pill">Smart Grid Optimization</span>
       </div>
     </div>
   </section>
 
   <!-- PUBLICATIONS -->
-  <section id="publications" class="section">
+  <section id="publications" class="section reveal">
     <h2 class="section-title">Publications</h2>
     <div class="card">
       <h3>Journal Articles</h3>
       <ul>
-        <li>
-          “A Comprehensive Review of Biomass and Biofuels and Their Progress Using
-          Digital Technologies,” <em>Energy Conversion and Management: X</em>,
-          2025 — Published (co-author).
-        </li>
-        <li>
-          “A comprehensive review of battery recycling and second-life batteries:
-          Advancements, challenges, solutions and future prospects,”
-          <em>Energy Conversion and Management: X</em>, 2025 — Under review
-          (co-author).
-        </li>
+        <li>“A Comprehensive Review of Biomass and Biofuels…” — ECMX, 2025 (Published)</li>
+        <li>“Battery Recycling & Second-Life Batteries…” — ECMX, 2025 (Under Review)</li>
       </ul>
     </div>
   </section>
 
   <!-- PROJECTS -->
-  <section id="projects" class="section">
+  <section id="projects" class="section reveal">
     <h2 class="section-title">Projects</h2>
     <div class="card">
       <h3>Undergraduate Thesis</h3>
       <p class="muted">
-        <em>Design, Development and Testing of Low-Cost Telescope Under Adverse Environment Conditions</em>
+        Design and development of a low-cost telescope under adverse conditions.
       </p>
-      <ul>
-        <li>Designed a low-cost telescope system suitable for challenging environmental conditions.</li>
-        <li>Integrated optics, mechanical structure, and electronics with image processing
-            to enable reliable astronomical observations.</li>
-      </ul>
     </div>
 
     <div class="card">
       <h3>Selected Academic Projects</h3>
       <ul>
-        <li>
-          <strong>Arduino-Controlled 12V Battery Charger</strong> — Implemented
-          a smart charging system combining step-down conversion, rectification,
-          LM338 regulation, and Arduino-based protection and monitoring.
-        </li>
-        <li>
-          <strong>Comparative Analysis of 10T, 14T, and 16T Full Adders</strong> —
-          Designed CMOS full adders, verified using Cadence ADE, and compared delay and
-          area characteristics using layout-level analysis.
-        </li>
-        <li>
-          <strong>Voltage Stabilizer with Short-Circuit Protection</strong> —
-          Developed a relay-based stabilizer to maintain safe operating voltage and
-          automatically disconnect the load during faults.
-        </li>
-        <li>
-          <strong>Obstacle-Avoiding Robot using Arduino Uno</strong> —
-          Built a mobile robot with sensor-based navigation for autonomous obstacle
-          avoidance.
-        </li>
+        <li>Arduino-Controlled 12V Smart Battery Charger</li>
+        <li>Comparative Analysis of 10T/14T/16T CMOS Adders</li>
+        <li>Voltage Stabilizer with Short-Circuit Protection</li>
+        <li>Obstacle-Avoiding Autonomous Robot</li>
       </ul>
     </div>
   </section>
 
   <!-- SKILLS -->
-  <section id="skills" class="section">
+  <section id="skills" class="section reveal">
     <h2 class="section-title">Skills</h2>
     <div class="card">
-      <h3>Technical Skills</h3>
+      <h3>Technical</h3>
       <div class="pill-row">
-        <span class="pill">C++</span>
-        <span class="pill">MATLAB</span>
-        <span class="pill">Simulink</span>
-        <span class="pill">PSpice</span>
-        <span class="pill">Tinkercad</span>
-        <span class="pill">Quartus II</span>
-        <span class="pill">Cadence Virtuoso</span>
-        <span class="pill">Proteus</span>
-        <span class="pill">AutoCAD</span>
+        <span class="pill">C++</span><span class="pill">MATLAB</span><span class="pill">Simulink</span>
+        <span class="pill">PSpice</span><span class="pill">Tinkercad</span>
+        <span class="pill">Quartus II</span><span class="pill">Cadence Virtuoso</span>
+        <span class="pill">Proteus</span><span class="pill">AutoCAD</span>
       </div>
 
-      <h3 style="margin-top:1rem;">Professional &amp; Interpersonal</h3>
+      <h3 style="margin-top:1rem;">Professional</h3>
       <div class="pill-row">
         <span class="pill">Analytical Thinking</span>
-        <span class="pill">Problem Solving</span>
         <span class="pill">Teamwork</span>
-        <span class="pill">Communication</span>
-        <span class="pill">Project Management</span>
         <span class="pill">Leadership</span>
+        <span class="pill">Communication</span>
         <span class="pill">Adaptability</span>
       </div>
     </div>
   </section>
 
-  <!-- TRAINING & ACTIVITIES -->
-  <section id="training" class="section">
-    <h2 class="section-title">Training &amp; Activities</h2>
-
+  <!-- TRAINING -->
+  <section id="training" class="section reveal">
+    <h2 class="section-title">Training & Activities</h2>
     <div class="card">
-      <h3>Specialized Training &amp; Certifications</h3>
+      <h3>Certifications</h3>
       <ul>
-        <li>
-          <strong>Motor Controlling Techniques with Project</strong> — Ulterior Engineering Ltd,
-          July 2023. Hands-on training on motor control, protection and practical implementation.
-        </li>
-        <li>
-          <strong>Create Charts and Dashboards Using Microsoft Excel</strong> — Coursera,
-          December 2023. Focused on data visualization and dashboard design for analytical reporting.
-        </li>
+        <li>Motor Controlling Techniques with Project — Ulterior Engineering Ltd (2023)</li>
+        <li>Create Charts & Dashboards (Excel) — Coursera (2023)</li>
       </ul>
     </div>
 
     <div class="card">
       <h3>Academic Activities</h3>
       <ul>
-        <li>
-          Presented undergraduate thesis poster titled
-          <em>“Design, Development, and Testing of a Low-Cost Telescope under Adverse Environmental
-          Conditions”</em> at AUST (October 2023).
-        </li>
+        <li>Poster Presentation — Low-Cost Telescope (AUST, Oct 2023)</li>
       </ul>
-
-      <h3 style="margin-top:1rem;">Language Proficiency</h3>
-      <p class="muted">
-        <strong>IELTS:</strong> Overall band score 7.0  
-        (Listening 8.0, Reading 7.5, Writing 7.0, Speaking 6.0).
-      </p>
     </div>
   </section>
 
   <!-- CONTACT -->
-  <section id="contact" class="section">
+  <section id="contact" class="section reveal">
     <h2 class="section-title">Contact</h2>
     <div class="card">
-      <p>
-        I am currently preparing for PhD applications for Fall 2026 and welcome
-        opportunities to collaborate on research in embedded systems, imaging,
-        and sustainable energy technologies.
-      </p>
-      <ul style="margin-top:0.6rem;">
-        <li><strong>Email:</strong> <a href="mailto:musfiqueahmed7@gmail.com">musfiqueahmed7@gmail.com</a></li>
-        <li><strong>Phone / WhatsApp:</strong> +880 16 3112 6180</li>
+      <ul>
+        <li><strong>Email:</strong> musfiqueahmed7@gmail.com</li>
+        <li><strong>Phone:</strong> +8801631126180</li>
         <li><strong>Location:</strong> Chattogram, Bangladesh</li>
       </ul>
-
-      <div class="pill-row" style="margin-top:0.8rem;">
-        <a class="pill" href="https://www.linkedin.com/in/mohammed-musfique-ahmed-chowdhury-9720731a8/" target="_blank">LinkedIn</a>
-        <a class="pill" href="https://orcid.org/0009-0006-7433-9121" target="_blank">ORCID</a>
-        <a class="pill" href="https://x.com/MusfiqueAhamed" target="_blank">X (Twitter)</a>
-      </div>
     </div>
   </section>
+
 </main>
 
 <footer>
@@ -781,43 +465,30 @@
 </footer>
 
 <script>
-  // Footer year
   document.getElementById("year").textContent = new Date().getFullYear();
 
-  // ===== Scroll reveal for hero, sections & cards =====
-  const revealObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.15 }
-  );
-
-  document
-    .querySelectorAll(".hero-content, .section, .section .card")
-    .forEach(el => {
-      el.classList.add("reveal");
-      revealObserver.observe(el);
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        revealObserver.unobserve(entry.target);
+      }
     });
+  }, { threshold: 0.15 });
 
-  // ===== Timeline scroll animation =====
-  const items = document.querySelectorAll(".timeline-item");
-  const timelineObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-          timelineObserver.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.25 }
-  );
-  items.forEach(item => timelineObserver.observe(item));
+  document.querySelectorAll(".reveal").forEach(el => revealObserver.observe(el));
+
+  const timelineObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        timelineObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+
+  document.querySelectorAll(".timeline-item")
+    .forEach(el => timelineObserver.observe(el));
 </script>
 
 </body>
