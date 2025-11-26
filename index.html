@@ -8,7 +8,7 @@
   <!-- Professional fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@600;800&display=swap" rel="stylesheet">
 
   <style>
     :root {
@@ -63,7 +63,7 @@
     .nav-links {
       display: flex;
       gap: 1.6rem;
-      font-size: 0.95rem;
+      font-size: 0.98rem;
       font-weight: 500;
     }
 
@@ -132,45 +132,48 @@
       z-index: 1;
     }
 
+    /* 🔍 Bigger, clearer profile image */
     .hero-avatar {
-      width: 170px;
-      height: 170px;
+      width: 210px;
+      height: 210px;
       border-radius: 50%;
       object-fit: cover;
-      border: 4px solid #e5d6c5;
+      border: 5px solid #e5d6c5;
       background: #fdf7f0;
-      box-shadow: 0 10px 30px rgba(52, 38, 26, 0.3);
+      box-shadow: 0 14px 40px rgba(52, 38, 26, 0.35);
       margin: 0 auto 1.1rem;
       display: block;
     }
 
     .hero-chip {
       display: inline-flex;
-      padding: 0.35rem 1.1rem;
+      padding: 0.38rem 1.2rem;
       border-radius: 999px;
       background: var(--chip-bg);
       border: 1px solid #e1d4c4;
-      font-size: 0.82rem;
+      font-size: 0.85rem;
       color: var(--muted-soft);
       margin-bottom: 0.9rem;
       font-weight: 500;
     }
 
+    /* 🔠 Larger hero name */
     .hero-name {
       font-family: "Merriweather", "Times New Roman", serif;
-      font-size: clamp(2.3rem, 4.1vw, 3.4rem);
-      font-weight: 700;
-      margin-bottom: 0.5rem;
+      font-size: clamp(2.7rem, 4.6vw, 3.8rem);
+      font-weight: 800;
+      margin-bottom: 0.6rem;
     }
 
     .hero-name span.highlight {
       color: var(--accent);
     }
 
+    /* ✂️ Shorter tagline */
     .hero-tagline {
-      font-size: 1rem;
+      font-size: 1.02rem;
       color: var(--muted);
-      max-width: 38rem;
+      max-width: 34rem;
       margin: 0 auto 1.4rem;
     }
 
@@ -190,7 +193,7 @@
     .btn {
       border-radius: 999px;
       padding: 0.6rem 1.4rem;
-      font-size: 0.92rem;
+      font-size: 0.94rem;
       font-weight: 500;
       border: 1px solid transparent;
       cursor: pointer;
@@ -242,21 +245,22 @@
       padding: 3rem 1.6rem 0;
     }
 
+    /* 🔠 Larger section titles */
     .section-title {
-      font-size: 1.05rem;
-      font-weight: 600;
+      font-size: 1.18rem;
+      font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.09em;
+      letter-spacing: 0.11em;
       color: var(--muted-soft);
-      margin-bottom: 1rem;
+      margin-bottom: 1.1rem;
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.6rem;
     }
 
     .section-title::before {
       content: "";
-      width: 34px;
+      width: 40px;
       height: 2px;
       border-radius: 999px;
       background: var(--accent);
@@ -266,15 +270,16 @@
       background: var(--bg-alt);
       border-radius: var(--card-radius);
       border: 1px solid var(--border-soft);
-      padding: 1.6rem 1.7rem;
+      padding: 1.7rem 1.8rem;
       box-shadow: 0 12px 32px rgba(0,0,0,0.06);
       margin-bottom: 1.6rem;
       font-size: 0.96rem;
     }
 
+    /* 🔠 Slightly larger card headings */
     h3 {
       font-family: "Merriweather", "Times New Roman", serif;
-      font-size: 1rem;
+      font-size: 1.08rem;
       margin-bottom: 0.35rem;
       color: #3a322c;
     }
@@ -306,6 +311,91 @@
       padding: 0.25rem 0.65rem;
       color: var(--muted);
       background: #faf7f3;
+    }
+
+    /* TIMELINE – animated vertical layout */
+    .timeline {
+      position: relative;
+      margin-top: 0.5rem;
+      padding-left: 1.5rem;
+    }
+
+    .timeline-line {
+      position: absolute;
+      left: 12px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: rgba(114, 149, 112, 0.5);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 1.6rem;
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.45s ease-out, transform 0.45s ease-out;
+    }
+
+    .timeline-item.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: 3px;
+      top: 18px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #4a8f5b;
+      border: 3px solid #e5f2e7;
+      box-shadow: 0 0 0 4px rgba(74, 143, 91, 0.15);
+    }
+
+    .timeline-card {
+      margin-left: 26px;
+      background: #ffffff;
+      border-radius: 14px;
+      border: 1px solid #e1e6df;
+      padding: 1.1rem 1.2rem;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 0.45rem;
+      font-size: 0.78rem;
+    }
+
+    .badge {
+      padding: 0.15rem 0.55rem;
+      border-radius: 999px;
+      background: #f2f7f1;
+      color: #486c4c;
+      border: 1px solid #d2e4cf;
+      font-weight: 500;
+    }
+
+    .badge-muted {
+      background: #f3eee9;
+      color: #7b7066;
+      border-color: #e0d4c7;
+    }
+
+    .timeline-title {
+      font-weight: 600;
+      margin-bottom: 0.15rem;
+      font-size: 0.98rem;
+      color: #2f2a25;
+    }
+
+    .timeline-sub {
+      font-size: 0.9rem;
+      color: var(--muted-soft);
     }
 
     footer {
@@ -354,12 +444,11 @@
         Mohammed <span class="highlight">Musfique</span> Ahmed Chowdhury
       </h1>
 
+      <!-- Short and simple tagline -->
       <p class="hero-tagline">
-        EEE graduate with a strong interest in
-        <strong>embedded systems</strong>, <strong>image processing</strong>,
-        and <strong>renewable energy technologies</strong>. I am passionate
-        about developing technically sound, data-driven solutions that address
-        real-world challenges in modern power and energy systems.
+        EEE graduate with interests in <strong>embedded systems</strong>,
+        <strong>image processing</strong>, and
+        <strong>renewable energy systems</strong>.
       </p>
 
       <div class="hero-buttons">
@@ -373,9 +462,10 @@
         <a class="btn btn-outline" href="#contact">Contact Me</a>
       </div>
 
+      <!-- No CGPA here anymore -->
       <p class="hero-submeta">
         BSc in Electrical &amp; Electronic Engineering (EEE), Ahsanullah University of
-        Science and Technology (AUST), Dhaka, Bangladesh · CGPA: 3.527 / 4.00
+        Science and Technology (AUST), Dhaka, Bangladesh.
       </p>
     </div>
   </div>
@@ -394,43 +484,103 @@
         VLSI design, control systems, and digital signal processing.
       </p>
       <p style="margin-top:0.7rem;">
-        I am highly analytical and detail-oriented, with a genuine enthusiasm for
-        innovation and problem-solving. I enjoy working on interdisciplinary
-        problems at the intersection of embedded systems, imaging, and renewable
-        energy. My undergraduate thesis on the design and development of a
-        low-cost telescope under adverse environmental conditions allowed me to
-        combine optical design, electronics, and image processing for practical
-        astronomical applications.
+        I enjoy working on interdisciplinary problems at the intersection of
+        embedded systems, imaging, and renewable energy. My undergraduate thesis
+        on the design and development of a low-cost telescope under adverse
+        environmental conditions allowed me to combine optical design, electronics,
+        and image processing for practical astronomical applications.
       </p>
       <p style="margin-top:0.7rem;">
-        Over the course of my studies, I have developed strong communication,
-        teamwork, and leadership abilities through academic projects, training
-        programs, and departmental activities. I am now preparing for doctoral
-        studies, aiming to contribute to high-impact research in intelligent
-        energy systems, advanced storage technologies, and sensing-driven
-        applications.
+        Through academic projects, training programs, and departmental activities,
+        I have developed strong communication, teamwork, and leadership skills.
+        I am now preparing for doctoral studies, aiming to contribute to research
+        in intelligent energy systems and sensing-driven applications.
       </p>
     </div>
   </section>
 
-  <!-- TIMELINE -->
+  <!-- TIMELINE – animated vertical journey -->
   <section id="timeline" class="section">
-    <h2 class="section-title">Timeline</h2>
+    <h2 class="section-title">Academic Journey</h2>
     <div class="card">
-      <ul>
-        <li>
-          <strong>2019 – 2023:</strong> Bachelor of Science in Electrical and
-          Electronic Engineering, AUST, Dhaka, Bangladesh (CGPA 3.527 / 4.00).
-        </li>
-        <li>
-          <strong>2016 – 2018:</strong> Higher Secondary School Certificate,
-          Chittagong College, Chattogram, Bangladesh (GPA 4.75).
-        </li>
-        <li>
-          <strong>2010 – 2016:</strong> Secondary School Certificate,
-          Chittagong Collegiate School, Chattogram, Bangladesh (GPA 5.00).
-        </li>
-      </ul>
+      <p class="muted" style="margin-bottom:0.8rem;">
+        Timeline of key educational milestones and academic achievements.
+      </p>
+
+      <div class="timeline">
+        <div class="timeline-line"></div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="badge-row">
+              <span class="badge">2010 – 2016</span>
+              <span class="badge badge-muted">Education</span>
+            </div>
+            <div class="timeline-title">Secondary School Certificate</div>
+            <div class="timeline-sub">
+              Chittagong Collegiate School · GPA 5.00 (Science)
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="badge-row">
+              <span class="badge">2016 – 2018</span>
+              <span class="badge badge-muted">Education</span>
+            </div>
+            <div class="timeline-title">Higher Secondary Certificate</div>
+            <div class="timeline-sub">
+              Chittagong College · GPA 4.75 (Science)
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="badge-row">
+              <span class="badge">2019</span>
+              <span class="badge badge-muted">Milestone</span>
+            </div>
+            <div class="timeline-title">Started University</div>
+            <div class="timeline-sub">
+              Began BSc in Electrical &amp; Electronic Engineering at AUST.
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="badge-row">
+              <span class="badge">2023</span>
+              <span class="badge badge-muted">Education</span>
+            </div>
+            <div class="timeline-title">Completed Bachelor’s Degree</div>
+            <div class="timeline-sub">
+              BSc in Electrical &amp; Electronic Engineering (EEE), AUST.
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="badge-row">
+              <span class="badge">2023</span>
+              <span class="badge badge-muted">Thesis</span>
+            </div>
+            <div class="timeline-title">Undergraduate Thesis</div>
+            <div class="timeline-sub">
+              Design, Development and Testing of a Low-Cost Telescope under
+              Adverse Environmental Conditions.
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -606,7 +756,23 @@
 </footer>
 
 <script>
+  // Footer year
   document.getElementById("year").textContent = new Date().getFullYear();
+
+  // Timeline scroll animation
+  const items = document.querySelectorAll(".timeline-item");
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.25 }
+  );
+  items.forEach(item => observer.observe(item));
 </script>
 
 </body>
