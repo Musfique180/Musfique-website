@@ -168,6 +168,24 @@
       color: #2b2b2b;
       text-align: center;
     }
+    .name-line1,
+.name-line2 {
+  text-align: center;
+  width: 100%;
+}
+
+.name-line1 {
+  white-space: nowrap;     /* Forces line 1 to stay in one line */
+}
+
+.name-line2 {
+  margin-top: 0.25rem;     /* Adjust space between lines */
+}
+
+.hero-name {
+  line-height: 1.12 !important; /* Keeps both lines visually balanced */
+}
+
 /* Keep first name line unbroken */
 .name-line1 {
   white-space: nowrap;
@@ -449,12 +467,12 @@
 
       <!-- Two-line name -->
     <h1 class="hero-name">
-  <span class="name-line1">
+  <div class="name-line1">
     Mohammed <span class="highlight">Musfique</span> Ahmed
-  </span>
-  <br>
-  Chowdhury
+  </div>
+  <div class="name-line2">Chowdhury</div>
 </h1>
+
 
 
       <div class="hero-buttons" style="margin-top: 1.2rem;">
