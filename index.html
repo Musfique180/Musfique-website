@@ -4,216 +4,325 @@
   <meta charset="UTF-8" />
   <title>Mohammed Musfique Ahmed Chowdhury</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Professional fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@600;700&display=swap" rel="stylesheet">
+
   <style>
     :root {
-      --bg: #171310;
-      --bg-alt: #1f1917;
-      --hero-top: #3c302d;
-      --hero-bottom: #2b2320;
-      --accent: #8f674f;
-      --accent-soft: #b7825c;
-      --chip-bg: rgba(15, 13, 11, 0.6);
-      --text: #fdfaf8;
-      --muted: #d4c7c2;
-      --muted-soft: #aa9690;
-      --border-soft: #3f332f;
-      --card-radius: 18px;
+      --bg: #f5f3ef;
+      --bg-alt: #ffffff;
+      --hero-top: #f7f3ec;
+      --hero-bottom: #ebe2d6;
+      --accent: #b67a4b;
+      --accent-soft: #c88c5b;
+      --chip-bg: #f0e4d4;
+      --text: #2b2520;
+      --muted: #625b55;
+      --muted-soft: #8a837d;
+      --border-soft: #ded3c5;
+      --card-radius: 16px;
       --max-width: 1080px;
     }
 
-    * { box-sizing: border-box; padding: 0; margin: 0; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top left, #241b18 0, #090605 50%, #030101 100%);
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 16px;
+      background: var(--bg);
       color: var(--text);
-      line-height: 1.6;
+      line-height: 1.7;
     }
 
-    a {
-      color: var(--accent-soft);
-      text-decoration: none;
-    }
+    a { color: var(--accent); text-decoration: none; }
     a:hover { text-decoration: underline; }
 
     /* NAVBAR */
     header {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 50;
-      background: rgba(10, 8, 7, 0.85);
-      backdrop-filter: blur(18px);
-      border-bottom: 1px solid rgba(255,255,255,0.06);
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 50;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #e2ddd7;
     }
 
     .nav-inner {
       max-width: var(--max-width);
       margin: 0 auto;
-      padding: 0.6rem 1.6rem;
-      display: flex; align-items: center; justify-content: space-between;
+      padding: 0.7rem 1.6rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    .nav-brand {
-      font-weight: 700; font-size: 1rem; letter-spacing: .06em;
-      text-transform: uppercase; cursor: pointer;
+    .nav-links {
+      display: flex;
+      gap: 1.6rem;
+      font-size: 0.95rem;
+      font-weight: 500;
     }
 
-    .nav-links { display: flex; gap: 1rem; font-size: .9rem; }
-    .nav-links a { color: var(--muted); }
-    .nav-links a:hover { color: var(--accent-soft); }
+    .nav-links a {
+      color: var(--muted);
+    }
 
-    .nav-menu-toggle { display: none; }
+    .nav-links a:hover {
+      color: var(--accent);
+    }
 
-    @media(max-width:780px){
-      .nav-links{ display:none; }
-      .nav-menu-toggle{
-        display:block; font-size:1.3rem;
-        background:none; border:none; color:var(--muted); cursor:pointer;
+    .nav-menu-toggle {
+      display: none;
+    }
+
+    @media (max-width: 780px) {
+      .nav-inner {
+        justify-content: space-between;
       }
-      header.open .nav-links{
-        position:absolute; left:0; right:0; top:100%;
-        background:#120f0d; border-bottom:1px solid rgba(255,255,255,0.1);
-        flex-direction:column; padding:0.6rem 1.6rem 1rem;
+      .nav-links {
+        display: none;
+      }
+      .nav-menu-toggle {
+        display: block;
+        font-size: 1.3rem;
+        background: none;
+        border: none;
+        color: var(--muted);
+        cursor: pointer;
+      }
+      header.open .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #ffffff;
+        border-bottom: 1px solid #e2ddd7;
+        display: flex;
+        flex-direction: column;
+        gap: 0.7rem;
+        padding: 0.7rem 1.6rem 1rem;
       }
     }
 
     /* HERO */
     .hero-wrapper {
-      background: 
-      radial-gradient(circle at top right, rgba(255,255,255,0.08), transparent 55%),
-      linear-gradient(180deg, var(--hero-top), var(--hero-bottom));
-      background-attachment: fixed;
-      padding-top: 4.5rem;
+      background: linear-gradient(180deg, var(--hero-top), var(--hero-bottom));
+      padding-top: 4rem; /* nav offset */
     }
 
     .hero {
-      max-width: var(--max-width); margin: 0 auto;
-      min-height: calc(100vh - 4.5rem);
-      padding: 2.5rem 1.6rem 3rem;
-      display:flex; flex-direction:column;
-      align-items:center; text-align:center;
-      position:relative;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      min-height: calc(100vh - 4rem);
+      padding: 3rem 1.6rem 3.2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      position: relative;
     }
 
-    .hero-circuit-overlay {
-      position:absolute; inset:0; opacity:.25;
-      background-image:
-        linear-gradient(120deg, rgba(245,222,179,0.12) 1px, transparent 1px),
-        linear-gradient(210deg, rgba(245,222,179,0.09) 1px, transparent 1px);
-      background-size:90px 90px; pointer-events:none;
+    .hero-content {
+      max-width: 640px;
+      position: relative;
+      z-index: 1;
     }
 
     .hero-avatar {
-      width:160px; height:160px; border-radius:50%;
-      border:4px solid #ccb79d;
-      object-fit:cover; background:#18120f;
-      box-shadow:0 20px 50px rgba(0,0,0,0.8);
-      margin-bottom:1rem;
+      width: 170px;
+      height: 170px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #e5d6c5;
+      background: #fdf7f0;
+      box-shadow: 0 10px 30px rgba(52, 38, 26, 0.3);
+      margin: 0 auto 1.1rem;
+      display: block;
     }
 
     .hero-chip {
-      display:inline-flex; padding:.35rem 1rem;
-      border-radius:999px; background:var(--chip-bg);
-      border:1px solid rgba(255,255,255,.12);
-      font-size:.82rem; color:var(--muted);
-      margin-bottom:.9rem;
+      display: inline-flex;
+      padding: 0.35rem 1.1rem;
+      border-radius: 999px;
+      background: var(--chip-bg);
+      border: 1px solid #e1d4c4;
+      font-size: 0.82rem;
+      color: var(--muted-soft);
+      margin-bottom: 0.9rem;
+      font-weight: 500;
     }
 
-    .hero-name { font-size:clamp(2.1rem,4vw,3rem); font-weight:700; }
-    .hero-name span { color:var(--accent-soft); }
-    .hero-lastname { font-weight:500; opacity:.8; }
+    .hero-name {
+      font-family: "Merriweather", "Times New Roman", serif;
+      font-size: clamp(2.3rem, 4.1vw, 3.4rem);
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-name span.highlight {
+      color: var(--accent);
+    }
 
     .hero-tagline {
-      font-size:1rem; color:var(--muted);
-      margin:0.4rem auto 1.3rem; max-width:36rem;
+      font-size: 1rem;
+      color: var(--muted);
+      max-width: 38rem;
+      margin: 0 auto 1.4rem;
     }
-    .hero-tagline strong { color:var(--accent-soft); }
+
+    .hero-tagline strong {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.8rem;
+      margin-bottom: 1.1rem;
+    }
 
     .btn {
-      border-radius:999px; padding:.55rem 1.25rem;
-      font-size:.9rem; font-weight:500; cursor:pointer;
-      border:1px solid transparent;
-      display:inline-flex; align-items:center; gap:.3rem;
-      transition:all .18s;
-      text-decoration:none;
+      border-radius: 999px;
+      padding: 0.6rem 1.4rem;
+      font-size: 0.92rem;
+      font-weight: 500;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: all 0.18s ease-out;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.3rem;
+      text-decoration: none;
+      white-space: nowrap;
     }
+
     .btn-primary {
-      background:var(--accent); border-color:var(--accent-soft);
-      color:#fff; box-shadow:0 12px 28px rgba(0,0,0,.7);
+      background: var(--accent);
+      border-color: var(--accent-soft);
+      color: #ffffff;
+      box-shadow: 0 10px 22px rgba(70, 44, 22, 0.25);
     }
-    .btn-primary:hover { background:var(--accent-soft); transform:translateY(-1px); }
+
+    .btn-primary:hover {
+      background: var(--accent-soft);
+      transform: translateY(-1px);
+    }
+
     .btn-outline {
-      background:transparent; color:var(--muted);
-      border-color:rgba(255,255,255,.3);
+      background: #ffffff;
+      border-color: #d7cec4;
+      color: var(--muted);
     }
+
     .btn-outline:hover {
-      border-color:var(--accent-soft); color:var(--accent-soft);
-      transform:translateY(-1px);
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-1px);
     }
 
-    main{ background:var(--bg); }
-
-    .section{
-      max-width:var(--max-width); margin:0 auto;
-      padding:3rem 1.6rem 0;
+    .hero-submeta {
+      font-size: 0.9rem;
+      color: var(--muted-soft);
+      margin-top: 0.2rem;
     }
 
-    .section-title{
-      font-size:1.1rem; text-transform:uppercase;
-      color:var(--muted-soft); font-weight:600;
-      letter-spacing:.08em; margin-bottom:1rem;
-      display:inline-flex; gap:.6rem; align-items:center;
-    }
-    .section-title::before{
-      content:""; width:34px; height:2px; background:var(--accent-soft);
-      border-radius:999px;
+    /* MAIN SECTIONS */
+    main { background: var(--bg); }
+
+    .section {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 3rem 1.6rem 0;
     }
 
-    .card{
-      background:var(--bg-alt);
-      border-radius:var(--card-radius);
-      border:1px solid var(--border-soft);
-      padding:1.5rem 1.6rem;
-      box-shadow:0 14px 42px rgba(0,0,0,.7);
-      margin-bottom:1.5rem;
-      color:var(--text);
+    .section-title {
+      font-size: 1.05rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      color: var(--muted-soft);
+      margin-bottom: 1rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
     }
 
-    h3{ font-size:1rem; margin-bottom:.3rem; }
-    .muted{ color:var(--muted-soft); font-size:.9rem; }
-
-    ul{ padding-left:1rem; margin-top:.4rem; font-size:.9rem; }
-    li + li{ margin-top:.3rem; }
-
-    .grid-two{
-      display:grid; grid-template-columns:1fr 1fr; gap:1.6rem;
-    }
-    @media(max-width:860px){ .grid-two{ grid-template-columns:1fr; } }
-
-    .pill-row{
-      display:flex; flex-wrap:wrap; gap:.4rem; margin-top:.7rem;
-    }
-    .pill{
-      border:1px solid rgba(255,255,255,.14);
-      padding:.25rem .6rem; border-radius:999px;
-      font-size:.8rem; color:var(--muted);
+    .section-title::before {
+      content: "";
+      width: 34px;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--accent);
     }
 
-    footer{
-      text-align:center; padding:2rem 1.6rem;
-      color:var(--muted-soft); background:#0b0806;
-      border-top:1px solid rgba(255,255,255,.06);
+    .card {
+      background: var(--bg-alt);
+      border-radius: var(--card-radius);
+      border: 1px solid var(--border-soft);
+      padding: 1.6rem 1.7rem;
+      box-shadow: 0 12px 32px rgba(0,0,0,0.06);
+      margin-bottom: 1.6rem;
+      font-size: 0.96rem;
+    }
+
+    h3 {
+      font-family: "Merriweather", "Times New Roman", serif;
+      font-size: 1rem;
+      margin-bottom: 0.35rem;
+      color: #3a322c;
+    }
+
+    .muted {
+      color: var(--muted-soft);
+      font-size: 0.9rem;
+    }
+
+    ul {
+      padding-left: 1.1rem;
+      margin-top: 0.4rem;
+      font-size: 0.94rem;
+    }
+
+    li + li { margin-top: 0.3rem; }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-top: 0.6rem;
+    }
+
+    .pill {
+      border-radius: 999px;
+      border: 1px solid #ddd2c5;
+      font-size: 0.82rem;
+      padding: 0.25rem 0.65rem;
+      color: var(--muted);
+      background: #faf7f3;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1.6rem 2.2rem;
+      color: var(--muted-soft);
+      font-size: 0.86rem;
+      background: #f0ebe4;
+      border-top: 1px solid #dfd5c9;
+      margin-top: 3rem;
     }
   </style>
 </head>
-
-<body>
+<body id="top">
 
 <header>
   <div class="nav-inner">
-    <div class="nav-brand" onclick="window.scrollTo({top:0,behavior:'smooth'})">
-      Musfique Ahmed
-    </div>
-
     <nav class="nav-links">
       <a href="#about">About</a>
       <a href="#timeline">Timeline</a>
@@ -221,55 +330,85 @@
       <a href="#publications">Publications</a>
       <a href="#projects">Projects</a>
       <a href="#skills">Skills</a>
+      <a href="#training">Training &amp; Activities</a>
       <a href="#contact">Contact</a>
     </nav>
-
     <button class="nav-menu-toggle"
-      onclick="document.querySelector('header').classList.toggle('open')">☰</button>
+      onclick="document.querySelector('header').classList.toggle('open')"
+      aria-label="Toggle navigation">☰</button>
   </div>
 </header>
 
 <section class="hero-wrapper">
   <div class="hero">
-    <div class="hero-circuit-overlay"></div>
+    <div class="hero-content">
+      <img
+        class="hero-avatar"
+        src="https://raw.githubusercontent.com/Musfique180/Musfique-website/main/IMG-20250515-WA0202~2%20(1)%20(1).jpg"
+        alt="Mohammed Musfique Ahmed Chowdhury"
+      />
 
-    <!-- ✅ YOUR IMAGE INSERTED -->
-    <img src="https://raw.githubusercontent.com/Musfique180/Musfique-website/main/IMG-20250515-WA0202~2%20(1)%20(1).jpg"
-         class="hero-avatar"
-         alt="Mohammed Musfique Ahmed Chowdhury" />
+      <div class="hero-chip">Electrical &amp; Electronic Engineering Graduate</div>
 
-    <div class="hero-chip">Electrical & Electronic Engineer</div>
+      <h1 class="hero-name">
+        Mohammed <span class="highlight">Musfique</span> Ahmed Chowdhury
+      </h1>
 
-    <h1 class="hero-name">
-      Mohammed <span>Musfique</span>
-      <span class="hero-lastname">Ahmed Chowdhury</span>
-    </h1>
+      <p class="hero-tagline">
+        EEE graduate with a strong interest in
+        <strong>embedded systems</strong>, <strong>image processing</strong>,
+        and <strong>renewable energy technologies</strong>. I am passionate
+        about developing technically sound, data-driven solutions that address
+        real-world challenges in modern power and energy systems.
+      </p>
 
-    <p class="hero-tagline">
-      Passionate researcher specializing in
-      <strong>Renewable Energy Systems</strong>,
-      <strong>Embedded Systems</strong>,
-      and <strong>Image Processing</strong>.
-    </p>
+      <div class="hero-buttons">
+        <a
+          class="btn btn-primary"
+          href="https://drive.google.com/file/d/1hr8FjNgkM1RtTYowJpcsak1SseIwYMJj/view?usp=sharing"
+          target="_blank" rel="noopener noreferrer"
+        >
+          Download CV
+        </a>
+        <a class="btn btn-outline" href="#contact">Contact Me</a>
+      </div>
 
-    <div class="hero-buttons">
-      <a class="btn btn-primary" href="YOUR_CV_LINK_HERE" target="_blank">Download CV</a>
-      <a class="btn btn-outline" href="#contact">Contact Me</a>
+      <p class="hero-submeta">
+        BSc in Electrical &amp; Electronic Engineering (EEE), Ahsanullah University of
+        Science and Technology (AUST), Dhaka, Bangladesh · CGPA: 3.527 / 4.00
+      </p>
     </div>
   </div>
 </section>
 
 <main>
-
   <!-- ABOUT -->
   <section id="about" class="section">
     <h2 class="section-title">About Me</h2>
     <div class="card">
       <p>
-        I am Mohammed Musfique Ahmed Chowdhury from Chattogram, Bangladesh.
-        I completed my BSc in Electrical & Electronic Engineering at AUST.
-        My interests include embedded imaging systems, power systems,
-        battery energy storage, and sustainable technology.
+        I am Mohammed Musfique Ahmed Chowdhury, an Electrical and Electronic
+        Engineering graduate from Ahsanullah University of Science and Technology
+        (AUST), Bangladesh. My academic training, combined with extensive project
+        work, has given me a strong foundation in power systems, power electronics,
+        VLSI design, control systems, and digital signal processing.
+      </p>
+      <p style="margin-top:0.7rem;">
+        I am highly analytical and detail-oriented, with a genuine enthusiasm for
+        innovation and problem-solving. I enjoy working on interdisciplinary
+        problems at the intersection of embedded systems, imaging, and renewable
+        energy. My undergraduate thesis on the design and development of a
+        low-cost telescope under adverse environmental conditions allowed me to
+        combine optical design, electronics, and image processing for practical
+        astronomical applications.
+      </p>
+      <p style="margin-top:0.7rem;">
+        Over the course of my studies, I have developed strong communication,
+        teamwork, and leadership abilities through academic projects, training
+        programs, and departmental activities. I am now preparing for doctoral
+        studies, aiming to contribute to high-impact research in intelligent
+        energy systems, advanced storage technologies, and sensing-driven
+        applications.
       </p>
     </div>
   </section>
@@ -279,23 +418,32 @@
     <h2 class="section-title">Timeline</h2>
     <div class="card">
       <ul>
-        <li><strong>2019–2023:</strong> BSc in EEE, AUST (CGPA: 3.527/4.0)</li>
-        <li><strong>2022–2023:</strong> Thesis on Low-Cost Telescope Design</li>
-        <li><strong>2024–2026:</strong> Research & PhD preparation</li>
+        <li>
+          <strong>2019 – 2023:</strong> Bachelor of Science in Electrical and
+          Electronic Engineering, AUST, Dhaka, Bangladesh (CGPA 3.527 / 4.00).
+        </li>
+        <li>
+          <strong>2016 – 2018:</strong> Higher Secondary School Certificate,
+          Chittagong College, Chattogram, Bangladesh (GPA 4.75).
+        </li>
+        <li>
+          <strong>2010 – 2016:</strong> Secondary School Certificate,
+          Chittagong Collegiate School, Chattogram, Bangladesh (GPA 5.00).
+        </li>
       </ul>
     </div>
   </section>
 
   <!-- RESEARCH -->
   <section id="research" class="section">
-    <h2 class="section-title">Research</h2>
+    <h2 class="section-title">Research Interests</h2>
     <div class="card">
       <ul>
-        <li>Embedded Systems for Imaging</li>
-        <li>Image Processing & Computer Vision</li>
-        <li>Renewable Energy Systems</li>
-        <li>Battery & Hybrid Energy Storage (BESS, HESS)</li>
-        <li>Biomass and Biofuel Technologies</li>
+        <li>Embedded systems for imaging and sensor integration.</li>
+        <li>Image processing and computer vision for low-cost instrumentation.</li>
+        <li>Renewable energy systems and smart grid applications.</li>
+        <li>Battery energy storage systems (BESS) and hybrid energy storage systems (HESS).</li>
+        <li>Biomass and biofuel technologies and their integration into energy systems.</li>
       </ul>
     </div>
   </section>
@@ -304,14 +452,18 @@
   <section id="publications" class="section">
     <h2 class="section-title">Publications</h2>
     <div class="card">
+      <h3>Journal Articles</h3>
       <ul>
         <li>
-          “A Comprehensive Review of Biomass and Biofuels…”
-          <em>Energy Conversion & Management: X</em> (Published, 2025)
+          “A Comprehensive Review of Biomass and Biofuels and Their Progress Using
+          Digital Technologies,” <em>Energy Conversion and Management: X</em>,
+          2025 — Published (co-author).
         </li>
         <li>
-          “Battery Recycling & Second-Life Batteries…”
-          <em>Energy Conversion & Management: X</em> (Under review, 2025)
+          “A comprehensive review of battery recycling and second-life batteries:
+          Advancements, challenges, solutions and future prospects,”
+          <em>Energy Conversion and Management: X</em>, 2025 — Under review
+          (co-author).
         </li>
       </ul>
     </div>
@@ -321,11 +473,40 @@
   <section id="projects" class="section">
     <h2 class="section-title">Projects</h2>
     <div class="card">
+      <h3>Undergraduate Thesis</h3>
+      <p class="muted">
+        <em>Design, Development and Testing of Low-Cost Telescope Under Adverse Environment Conditions</em>
+      </p>
       <ul>
-        <li>Arduino Controlled 12V Battery Charger</li>
-        <li>10T/14T/16T Full Adder Design (VLSI)</li>
-        <li>Voltage Stabilizer with Short Circuit Protection</li>
-        <li>Obstacle-Avoiding Robot (Arduino)</li>
+        <li>Designed a low-cost telescope system suitable for challenging environmental conditions.</li>
+        <li>Integrated optics, mechanical structure, and electronics with image processing
+            to enable reliable astronomical observations.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Selected Academic Projects</h3>
+      <ul>
+        <li>
+          <strong>Arduino-Controlled 12V Battery Charger</strong> — Implemented
+          a smart charging system combining step-down conversion, rectification,
+          LM338 regulation, and Arduino-based protection and monitoring.
+        </li>
+        <li>
+          <strong>Comparative Analysis of 10T, 14T, and 16T Full Adders</strong> —
+          Designed CMOS full adders, verified using Cadence ADE, and compared delay and
+          area characteristics using layout-level analysis.
+        </li>
+        <li>
+          <strong>Voltage Stabilizer with Short-Circuit Protection</strong> —
+          Developed a relay-based stabilizer to maintain safe operating voltage and
+          automatically disconnect the load during faults.
+        </li>
+        <li>
+          <strong>Obstacle-Avoiding Robot using Arduino Uno</strong> —
+          Built a mobile robot with sensor-based navigation for autonomous obstacle
+          avoidance.
+        </li>
       </ul>
     </div>
   </section>
@@ -334,15 +515,65 @@
   <section id="skills" class="section">
     <h2 class="section-title">Skills</h2>
     <div class="card">
+      <h3>Technical Skills</h3>
       <div class="pill-row">
-        <span class="pill">Python</span>
         <span class="pill">C++</span>
         <span class="pill">MATLAB</span>
         <span class="pill">Simulink</span>
         <span class="pill">PSpice</span>
-        <span class="pill">Cadence</span>
         <span class="pill">Tinkercad</span>
+        <span class="pill">Quartus II</span>
+        <span class="pill">Cadence Virtuoso</span>
+        <span class="pill">Proteus</span>
+        <span class="pill">AutoCAD</span>
       </div>
+
+      <h3 style="margin-top:1rem;">Professional &amp; Interpersonal</h3>
+      <div class="pill-row">
+        <span class="pill">Analytical Thinking</span>
+        <span class="pill">Problem Solving</span>
+        <span class="pill">Teamwork</span>
+        <span class="pill">Communication</span>
+        <span class="pill">Project Management</span>
+        <span class="pill">Leadership</span>
+        <span class="pill">Adaptability</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRAINING & ACTIVITIES -->
+  <section id="training" class="section">
+    <h2 class="section-title">Training &amp; Activities</h2>
+
+    <div class="card">
+      <h3>Specialized Training &amp; Certifications</h3>
+      <ul>
+        <li>
+          <strong>Motor Controlling Techniques with Project</strong> — Ulterior Engineering Ltd,
+          July 2023. Hands-on training on motor control, protection and practical implementation.
+        </li>
+        <li>
+          <strong>Create Charts and Dashboards Using Microsoft Excel</strong> — Coursera,
+          December 2023. Focused on data visualization and dashboard design for analytical reporting.
+        </li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Academic Activities</h3>
+      <ul>
+        <li>
+          Presented undergraduate thesis poster titled
+          <em>“Design, Development, and Testing of a Low-Cost Telescope under Adverse Environmental
+          Conditions”</em> at AUST (October 2023).
+        </li>
+      </ul>
+
+      <h3 style="margin-top:1rem;">Language Proficiency</h3>
+      <p class="muted">
+        <strong>IELTS:</strong> Overall band score 7.0  
+        (Listening 8.0, Reading 7.5, Writing 7.0, Speaking 6.0).
+      </p>
     </div>
   </section>
 
@@ -350,23 +581,28 @@
   <section id="contact" class="section">
     <h2 class="section-title">Contact</h2>
     <div class="card">
-      <p>Email: <a href="mailto:musfiqueahmed7@gmail.com">musfiqueahmed7@gmail.com</a></p>
-      <p>WhatsApp: +880 1631126180</p>
-      <p>Location: Chattogram, Bangladesh</p>
+      <p>
+        I am currently preparing for PhD applications for Fall 2026 and welcome
+        opportunities to collaborate on research in embedded systems, imaging,
+        and sustainable energy technologies.
+      </p>
+      <ul style="margin-top:0.6rem;">
+        <li><strong>Email:</strong> <a href="mailto:musfiqueahmed7@gmail.com">musfiqueahmed7@gmail.com</a></li>
+        <li><strong>Phone / WhatsApp:</strong> +880 16 3112 6180</li>
+        <li><strong>Location:</strong> Chattogram, Bangladesh</li>
+      </ul>
 
-      <div class="pill-row" style="margin-top:.8rem;">
+      <div class="pill-row" style="margin-top:0.8rem;">
         <a class="pill" href="https://www.linkedin.com/in/mohammed-musfique-ahmed-chowdhury-9720731a8/" target="_blank">LinkedIn</a>
         <a class="pill" href="https://orcid.org/0009-0006-7433-9121" target="_blank">ORCID</a>
-        <a class="pill" href="https://x.com/MusfiqueAhamed" target="_blank">Twitter (X)</a>
+        <a class="pill" href="https://x.com/MusfiqueAhamed" target="_blank">X (Twitter)</a>
       </div>
     </div>
   </section>
-
 </main>
 
 <footer>
-  © <span id="year"></span> Mohammed Musfique Ahmed Chowdhury
-  <br/><a href="#top">Back to top</a>
+  © <span id="year"></span> Mohammed Musfique Ahmed Chowdhury · <a href="#top">Back to top</a>
 </footer>
 
 <script>
@@ -375,5 +611,3 @@
 
 </body>
 </html>
-
-
