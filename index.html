@@ -10,7 +10,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-
   <style>
     :root {
       --bg: #f5f3ef;
@@ -133,16 +132,16 @@
       z-index: 1;
     }
 
-    /* 🔍 Bigger, clearer profile image */
+    /* Profile image */
     .hero-avatar {
-      width: 210px;
-      height: 210px;
+      width: 260px;
+      height: 260px;
       border-radius: 50%;
       object-fit: cover;
-      border: 5px solid #e5d6c5;
+      border: 6px solid #e5d6c5;
       background: #fdf7f0;
-      box-shadow: 0 14px 40px rgba(52, 38, 26, 0.35);
-      margin: 0 auto 1.1rem;
+      box-shadow: 0 20px 45px rgba(52, 38, 26, 0.35);
+      margin: 0 auto 1.3rem;
       display: block;
     }
 
@@ -158,29 +157,21 @@
       font-weight: 500;
     }
 
-    /* 🔠 Larger hero name */
+    /* Hero name */
     .hero-name {
-      font-family: "Merriweather", "Times New Roman", serif;
-      font-size: clamp(2.7rem, 4.6vw, 3.8rem);
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.7rem, 4.8vw, 4rem);
+      font-weight: 700;
+      line-height: 1.15;
+      margin-top: 1.2rem;
+      margin-bottom: 0.4rem;
+      color: #2b2b2b;
+      text-align: center;
+    }
+
+    .hero-name .highlight {
+      color: var(--accent);
       font-weight: 800;
-      margin-bottom: 0.6rem;
-    }
-
-    .hero-name span.highlight {
-      color: var(--accent);
-    }
-
-    /* ✂️ Shorter tagline */
-    .hero-tagline {
-      font-size: 1.02rem;
-      color: var(--muted);
-      max-width: 34rem;
-      margin: 0 auto 1.4rem;
-    }
-
-    .hero-tagline strong {
-      color: var(--accent);
-      font-weight: 600;
     }
 
     .hero-buttons {
@@ -246,7 +237,7 @@
       padding: 3rem 1.6rem 0;
     }
 
-    /* 🔠 Larger section titles */
+    /* Section titles */
     .section-title {
       font-size: 1.18rem;
       font-weight: 700;
@@ -277,9 +268,8 @@
       font-size: 0.96rem;
     }
 
-    /* 🔠 Slightly larger card headings */
     h3 {
-      font-family: "Merriweather", "Times New Roman", serif;
+      font-family: "Playfair Display", serif;
       font-size: 1.08rem;
       margin-bottom: 0.35rem;
       color: #3a322c;
@@ -408,6 +398,18 @@
       border-top: 1px solid #dfd5c9;
       margin-top: 3rem;
     }
+
+    /* ===== Scroll reveal animation for sections & cards ===== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
   </style>
 </head>
 <body id="top">
@@ -433,48 +435,20 @@
 <section class="hero-wrapper">
   <div class="hero">
     <div class="hero-content">
-
-      <!-- Larger Profile Image -->
       <img
         class="hero-avatar"
         src="https://raw.githubusercontent.com/Musfique180/Musfique-website/main/IMG-20250515-WA0202~2%20(1)%20(1).jpg"
         alt="Mohammed Musfique Ahmed Chowdhury"
-        style="
-          width: 260px;
-          height: 260px;
-          border-radius: 50%;
-          object-fit: cover;
-          border: 6px solid #e5d6c5;
-          background: #fdf7f0;
-          box-shadow: 0 20px 45px rgba(52, 38, 26, 0.35);
-          margin: 0 auto 1.3rem;
-          display: block;
-        "
       />
 
       <div class="hero-chip">Electrical &amp; Electronic Engineering Graduate</div>
 
-      <!-- Larger Name -->
-   <h1 class="hero-name" style="
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(2.7rem, 4.8vw, 4rem);
-  font-weight: 700;
-  line-height: 1.15;
-  margin-top: 1.2rem;
-  margin-bottom: 0.4rem;
-  color: #2b2b2b;
-  text-align: center;
-">
-  Mohammed <span style="color:#b67a4b; font-weight:800;">Musfique</span> Ahmed
-  <br>
-  Chowdhury
-</h1>
-
-
-
-    
-
-      <!-- Removed tagline -->
+      <!-- Two-line name -->
+      <h1 class="hero-name">
+        Mohammed <span class="highlight">Musfique</span> Ahmed
+        <br>
+        Chowdhury
+      </h1>
 
       <div class="hero-buttons" style="margin-top: 1.2rem;">
         <a
@@ -489,16 +463,6 @@
 
       <p class="hero-submeta" style="margin-top: 0.4rem;">
         BSc in Electrical &amp; Electronic Engineering, Ahsanullah University of Science and Technology (AUST), Dhaka.
-      </p>
-    </div>
-  </div>
-</section>
-
-
-      <!-- No CGPA here anymore -->
-      <p class="hero-submeta">
-        BSc in Electrical &amp; Electronic Engineering (EEE), Ahsanullah University of
-        Science and Technology (AUST), Dhaka, Bangladesh.
       </p>
     </div>
   </div>
@@ -532,7 +496,7 @@
     </div>
   </section>
 
-  <!-- TIMELINE – animated vertical journey -->
+  <!-- TIMELINE -->
   <section id="timeline" class="section">
     <h2 class="section-title">Academic Journey</h2>
     <div class="card">
@@ -621,13 +585,19 @@
   <section id="research" class="section">
     <h2 class="section-title">Research Interests</h2>
     <div class="card">
-      <ul>
-        <li>Embedded systems for imaging and sensor integration.</li>
-        <li>Image processing and computer vision for low-cost instrumentation.</li>
-        <li>Renewable energy systems and smart grid applications.</li>
-        <li>Battery energy storage systems (BESS) and hybrid energy storage systems (HESS).</li>
-        <li>Biomass and biofuel technologies and their integration into energy systems.</li>
-      </ul>
+      <p class="muted">
+        I am particularly interested in problems at the intersection of embedded
+        intelligence, sensing, and sustainable energy systems.
+      </p>
+      <div class="pill-row">
+        <span class="pill">Embedded Systems for Imaging</span>
+        <span class="pill">Image Processing &amp; Computer Vision</span>
+        <span class="pill">Renewable Energy Systems</span>
+        <span class="pill">Battery Energy Storage (BESS)</span>
+        <span class="pill">Hybrid Energy Storage (HESS)</span>
+        <span class="pill">Biomass &amp; Biofuel Technologies</span>
+        <span class="pill">Smart Grid &amp; Optimization</span>
+      </div>
     </div>
   </section>
 
@@ -792,20 +762,40 @@
   // Footer year
   document.getElementById("year").textContent = new Date().getFullYear();
 
-  // Timeline scroll animation
-  const items = document.querySelectorAll(".timeline-item");
-  const observer = new IntersectionObserver(
+  // ===== Scroll reveal for hero, sections & cards =====
+  const revealObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add("visible");
-          observer.unobserve(entry.target);
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.15 }
+  );
+
+  document
+    .querySelectorAll(".hero-content, .section, .section .card")
+    .forEach(el => {
+      el.classList.add("reveal");
+      revealObserver.observe(el);
+    });
+
+  // ===== Timeline scroll animation =====
+  const items = document.querySelectorAll(".timeline-item");
+  const timelineObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          timelineObserver.unobserve(entry.target);
         }
       });
     },
     { threshold: 0.25 }
   );
-  items.forEach(item => observer.observe(item));
+  items.forEach(item => timelineObserver.observe(item));
 </script>
 
 </body>
