@@ -432,26 +432,41 @@
 <section class="hero-wrapper">
   <div class="hero">
     <div class="hero-content">
+
+      <!-- Larger Profile Image -->
       <img
         class="hero-avatar"
         src="https://raw.githubusercontent.com/Musfique180/Musfique-website/main/IMG-20250515-WA0202~2%20(1)%20(1).jpg"
         alt="Mohammed Musfique Ahmed Chowdhury"
+        style="
+          width: 260px;
+          height: 260px;
+          border-radius: 50%;
+          object-fit: cover;
+          border: 6px solid #e5d6c5;
+          background: #fdf7f0;
+          box-shadow: 0 20px 45px rgba(52, 38, 26, 0.35);
+          margin: 0 auto 1.3rem;
+          display: block;
+        "
       />
 
       <div class="hero-chip">Electrical &amp; Electronic Engineering Graduate</div>
 
-      <h1 class="hero-name">
-        Mohammed <span class="highlight">Musfique</span> Ahmed Chowdhury
+      <!-- Larger Name -->
+      <h1 class="hero-name" style="
+        font-size: clamp(3rem, 5vw, 4.3rem);
+        font-weight: 800;
+        line-height: 1.15;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+      ">
+        Mohammed <span class="highlight" style="color:#b67a4b;">Musfique</span> Ahmed Chowdhury
       </h1>
 
-      <!-- Short and simple tagline -->
-      <p class="hero-tagline">
-        EEE graduate with interests in <strong>embedded systems</strong>,
-        <strong>image processing</strong>, and
-        <strong>renewable energy systems</strong>.
-      </p>
+      <!-- Removed tagline -->
 
-      <div class="hero-buttons">
+      <div class="hero-buttons" style="margin-top: 1.2rem;">
         <a
           class="btn btn-primary"
           href="https://drive.google.com/file/d/1hr8FjNgkM1RtTYowJpcsak1SseIwYMJj/view?usp=sharing"
@@ -461,6 +476,14 @@
         </a>
         <a class="btn btn-outline" href="#contact">Contact Me</a>
       </div>
+
+      <p class="hero-submeta" style="margin-top: 0.4rem;">
+        BSc in Electrical &amp; Electronic Engineering, Ahsanullah University of Science and Technology (AUST), Dhaka.
+      </p>
+    </div>
+  </div>
+</section>
+
 
       <!-- No CGPA here anymore -->
       <p class="hero-submeta">
