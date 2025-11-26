@@ -168,6 +168,10 @@
       color: #2b2b2b;
       text-align: center;
     }
+/* Keep first name line unbroken */
+.name-line1 {
+  white-space: nowrap;
+}
 
     .hero-name .highlight {
       color: var(--accent);
@@ -444,11 +448,14 @@
       <div class="hero-chip">Electrical &amp; Electronic Engineering Graduate</div>
 
       <!-- Two-line name -->
-      <h1 class="hero-name">
-        Mohammed <span class="highlight">Musfique</span> Ahmed
-        <br>
-        Chowdhury
-      </h1>
+    <h1 class="hero-name">
+  <span class="name-line1">
+    Mohammed <span class="highlight">Musfique</span> Ahmed
+  </span>
+  <br>
+  Chowdhury
+</h1>
+
 
       <div class="hero-buttons" style="margin-top: 1.2rem;">
         <a
