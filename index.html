@@ -101,21 +101,18 @@
       color: var(--muted-soft);
     }
 
-    /* HERO NAME — FIXED CENTERING */
+    /* HERO NAME — slightly left but still visually centered */
     .hero-name {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(2.4rem, 4vw, 3.5rem);
-  font-weight: 700;
-  line-height: 1.15;
-  color: #2b2b2b;
-  max-width: 18ch;
-  margin: 1.4rem auto 0.4rem;
-  text-align: center;
-
-  /* SHIFT NAME SLIGHTLY LEFT */
-  transform: translateX(-10px); /* adjust value if needed */
-}
-
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 4vw, 3.5rem);
+      font-weight: 700;
+      line-height: 1.15;
+      color: #2b2b2b;
+      max-width: 18ch;
+      margin: 1.4rem auto 0.4rem;
+      text-align: center;
+      transform: translateX(-10px); /* small left shift as you wanted */
+    }
 
     .hero-name .name-line1,
     .hero-name .name-line2 {
@@ -161,6 +158,11 @@
       color: var(--muted);
     }
 
+    .hero-submeta {
+      font-size: 0.9rem;
+      color: var(--muted-soft);
+    }
+
     /* SECTIONS */
     .section {
       max-width: var(--max-width);
@@ -168,6 +170,7 @@
       padding: 3rem 1.6rem 0;
     }
 
+    /* Centered section titles */
     .section-title {
       font-size: 1.25rem;
       text-transform: uppercase;
@@ -176,7 +179,9 @@
       margin-bottom: 1.1rem;
       display: flex;
       align-items: center;
+      justify-content: center;   /* centers the whole title block */
       gap: 0.5rem;
+      text-align: center;
     }
 
     .section-title:before {
@@ -190,145 +195,203 @@
     .card {
       background: var(--bg-alt);
       padding: 1.7rem;
-      border-radius: 16px;
+      border-radius: var(--card-radius);
       border: 1px solid var(--border-soft);
       box-shadow: 0 12px 32px rgba(0,0,0,0.06);
       margin-bottom: 1.6rem;
     }
 
-    /* TIMELINE ANIMATION */
-   /* TIMELINE – animated vertical layout (center line + left/right cards) */
-.timeline {
-  position: relative;
-  margin-top: 1.5rem;
-  padding: 0;
-}
+    /* About text justification */
+    .card p {
+      text-align: justify;
+      text-justify: inter-word;
+      margin-bottom: 0.6rem;
+    }
 
-/* center line */
-.timeline::before {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background: rgba(114, 149, 112, 0.5);
-  transform: translateX(-50%);
-}
+    .card p:last-child {
+      margin-bottom: 0;
+    }
 
-/* each item */
-.timeline-item {
-  position: relative;
-  width: 100%;
-  margin: 2.4rem 0;
-  opacity: 0;
-  transform: translateY(26px);
-  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-}
+    h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.08rem;
+      margin-bottom: 0.35rem;
+      color: #3a322c;
+    }
 
-.timeline-item.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
+    .muted {
+      color: var(--muted-soft);
+      font-size: 0.9rem;
+    }
 
-/* dot on the center line */
-.timeline-dot {
-  position: absolute;
-  left: 50%;
-  top: 24px;
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background: #4a8f5b;
-  border: 3px solid #e5f2e7;
-  box-shadow: 0 0 0 5px rgba(74, 143, 91, 0.16);
-  transform: translateX(-50%);
-}
+    ul {
+      padding-left: 1.1rem;
+      margin-top: 0.4rem;
+      font-size: 0.94rem;
+    }
 
-/* card container */
-.timeline-content {
-  position: relative;
-  max-width: 420px;
-}
+    li + li { margin-top: 0.3rem; }
 
-/* left side items */
-.timeline-item.left .timeline-content {
-  margin-right: auto;
-  padding-right: 2.4rem;
-  text-align: left;
-}
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-top: 0.6rem;
+      justify-content: center;   /* center-align research pills etc. */
+    }
 
-/* right side items */
-.timeline-item.right .timeline-content {
-  margin-left: auto;
-  padding-left: 2.4rem;
-  text-align: left;
-}
+    .pill {
+      border-radius: 999px;
+      border: 1px solid #ddd2c5;
+      font-size: 0.82rem;
+      padding: 0.25rem 0.65rem;
+      color: var(--muted);
+      background: #faf7f3;
+    }
 
-/* the actual card */
-.timeline-card {
-  background: #ffffff;
-  border-radius: 14px;
-  border: 1px solid #e1e6df;
-  padding: 1.15rem 1.25rem;
-  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.04);
-}
+    /* Make Research card more balanced */
+    #research .card {
+      text-align: center;
+    }
 
-/* badge row */
-.badge-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-  margin-bottom: 0.45rem;
-  font-size: 0.78rem;
-}
+    /* TIMELINE – animated vertical layout (center line + left/right cards) */
+    .timeline {
+      position: relative;
+      margin-top: 1.5rem;
+      padding: 0;
+    }
 
-.badge {
-  padding: 0.18rem 0.6rem;
-  border-radius: 999px;
-  background: #f2f7f1;
-  color: #486c4c;
-  border: 1px solid #d2e4cf;
-  font-weight: 500;
-}
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: rgba(114, 149, 112, 0.5);
+      transform: translateX(-50%);
+    }
 
-.badge-muted {
-  background: #f3eee9;
-  color: #7b7066;
-  border-color: #e0d4c7;
-}
+    .timeline-item {
+      position: relative;
+      width: 100%;
+      margin: 2.4rem 0;
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    }
 
-.timeline-title {
-  font-weight: 600;
-  margin-bottom: 0.15rem;
-  font-size: 0.98rem;
-  color: #2f2a25;
-}
+    .timeline-item.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
-.timeline-sub {
-  font-size: 0.9rem;
-  color: var(--muted-soft);
-}
+    .timeline-dot {
+      position: absolute;
+      left: 50%;
+      top: 24px;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: #4a8f5b;
+      border: 3px solid #e5f2e7;
+      box-shadow: 0 0 0 5px rgba(74, 143, 91, 0.16);
+      transform: translateX(-50%);
+    }
 
-/* mobile: stack cards on one side */
-@media (max-width: 780px) {
-  .timeline::before {
-    left: 18px;
-    transform: none;
-  }
+    .timeline-content {
+      position: relative;
+      max-width: 420px;
+    }
 
-  .timeline-dot {
-    left: 18px;
-    transform: none;
-  }
+    .timeline-item.left .timeline-content {
+      margin-right: auto;
+      padding-right: 2.4rem;
+      text-align: left;
+    }
 
-  .timeline-item.left .timeline-content,
-  .timeline-item.right .timeline-content {
-    margin: 0 0 0 2.2rem;
-    padding: 0 0 0 1.2rem;
-  }
-}
+    .timeline-item.right .timeline-content {
+      margin-left: auto;
+      padding-left: 2.4rem;
+      text-align: left;
+    }
 
+    .timeline-card {
+      background: #ffffff;
+      border-radius: 14px;
+      border: 1px solid #e1e6df;
+      padding: 1.15rem 1.25rem;
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.04);
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 0.45rem;
+      font-size: 0.78rem;
+    }
+
+    .badge {
+      padding: 0.18rem 0.6rem;
+      border-radius: 999px;
+      background: #f2f7f1;
+      color: #486c4c;
+      border: 1px solid #d2e4cf;
+      font-weight: 500;
+    }
+
+    .badge-muted {
+      background: #f3eee9;
+      color: #7b7066;
+      border-color: #e0d4c7;
+    }
+
+    .timeline-title {
+      font-weight: 600;
+      margin-bottom: 0.15rem;
+      font-size: 0.98rem;
+      color: #2f2a25;
+    }
+
+    .timeline-sub {
+      font-size: 0.9rem;
+      color: var(--muted-soft);
+    }
+
+    @media (max-width: 780px) {
+      .timeline::before {
+        left: 18px;
+        transform: none;
+      }
+
+      .timeline-dot {
+        left: 18px;
+        transform: none;
+      }
+
+      .timeline-item.left .timeline-content,
+      .timeline-item.right .timeline-content {
+        margin: 0 0 0 2.2rem;
+        padding: 0 0 0 1.2rem;
+      }
+
+      .hero-name {
+        transform: none; /* avoid weird shift on very small screens */
+      }
+    }
+
+    /* Section/card reveal animation */
+    .reveal {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
     footer {
       margin-top: 3rem;
@@ -390,173 +453,174 @@
 <main>
 
   <!-- ABOUT -->
-  <section id="about" class="section">
-  <h2 class="section-title">About Me</h2>
-  <div class="card">
-    <p>
-      I am Mohammed Musfique Ahmed Chowdhury, a graduate of Electrical and Electronic
-      Engineering (EEE) from the Ahsanullah University of Science and Technology (AUST),
-      Bangladesh. My academic and project experience has provided me with a strong
-      foundation in embedded systems, image processing, renewable energy technologies,
-      VLSI design and power engineering.
-    </p>
+  <section id="about" class="section reveal">
+    <h2 class="section-title">About Me</h2>
+    <div class="card">
+      <p>
+        I am Mohammed Musfique Ahmed Chowdhury, a graduate of Electrical and Electronic
+        Engineering (EEE) from the Ahsanullah University of Science and Technology (AUST),
+        Bangladesh. My academic and project experience has provided me with a strong
+        foundation in embedded systems, image processing, renewable energy technologies,
+        VLSI design and power engineering.
+      </p>
 
-    <p style="margin-top:0.7rem;">
-      My undergraduate thesis focused on the
-      <em>design, development, and testing of a low-cost telescope under adverse
-      environmental conditions</em>, where I worked at the intersection of optical
-      engineering, electronics, mechanical design, and digital image processing.
-      This project strengthened my interest in sensing systems, computational imaging,
-      and low-cost scientific instrumentation.
-    </p>
+      <p>
+        My undergraduate thesis focused on the
+        <em>design, development, and testing of a low-cost telescope under adverse
+        environmental conditions</em>, where I worked at the intersection of optical
+        engineering, electronics, mechanical design, and digital image processing.
+        This project strengthened my interest in sensing systems, computational imaging,
+        and low-cost scientific instrumentation.
+      </p>
 
-    <p style="margin-top:0.7rem;">
-      Beyond coursework and academic projects, I pursued hands-on training in industrial
-      motor control systems, practical electronics, and technical project implementation.
-      I have also gained experience in data visualization, simulation tools, control systems,
-      and circuit design through various academic and professional activities.
-    </p>
+      <p>
+        Beyond coursework and academic projects, I pursued hands-on training in industrial
+        motor control systems, practical electronics, and technical project implementation.
+        I have also gained experience in data visualization, simulation tools, control systems,
+        and circuit design through various academic and professional activities.
+      </p>
 
-    <p style="margin-top:0.7rem;">
-      I am particularly motivated by interdisciplinary problems that merge embedded
-      intelligence with modern energy systems and sensing technologies. My broader
-      research interests include embedded systems for imaging, renewable energy systems,
-      battery and hybrid energy storage, smart grid technologies, and computational imaging.
-    </p>
-
-  </div>
-</section>
-
+      <p>
+        I am particularly motivated by interdisciplinary problems that merge embedded
+        intelligence with modern energy systems and sensing technologies. My broader
+        research interests include embedded systems for imaging, renewable energy systems,
+        battery and hybrid energy storage, smart grid technologies, and computational imaging.
+      </p>
+    </div>
+  </section>
 
   <!-- TIMELINE -->
-<section id="timeline" class="section">
-  <h2 class="section-title">Academic Journey</h2>
-  <div class="card">
-    <p class="muted" style="margin-bottom:0.8rem;">
-      Timeline of key educational milestones and academic achievements.
-    </p>
+  <section id="timeline" class="section reveal">
+    <h2 class="section-title">Academic Journey</h2>
+    <div class="card">
+      <p class="muted" style="margin-bottom:0.8rem; text-align:center;">
+        Timeline of key educational milestones and academic achievements.
+      </p>
 
-    <div class="timeline">
-      <!-- SSC – left -->
-      <div class="timeline-item left">
-        <div class="timeline-dot"></div>
-        <div class="timeline-content">
-          <div class="timeline-card">
-            <div class="badge-row">
-              <span class="badge">2010 – 2016</span>
-              <span class="badge badge-muted">Education</span>
-            </div>
-            <div class="timeline-title">Secondary School Certificate</div>
-            <div class="timeline-sub">
-              Chittagong Collegiate School · GPA 5.00 (Science)
+      <div class="timeline">
+        <!-- SSC – left -->
+        <div class="timeline-item left">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-card">
+              <div class="badge-row">
+                <span class="badge">2010 – 2016</span>
+                <span class="badge badge-muted">Education</span>
+              </div>
+              <div class="timeline-title">Secondary School Certificate</div>
+              <div class="timeline-sub">
+                Chittagong Collegiate School · GPA 5.00 (Science)
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- HSC – right -->
-      <div class="timeline-item right">
-        <div class="timeline-dot"></div>
-        <div class="timeline-content">
-          <div class="timeline-card">
-            <div class="badge-row">
-              <span class="badge">2016 – 2018</span>
-              <span class="badge badge-muted">Education</span>
-            </div>
-            <div class="timeline-title">Higher Secondary Certificate</div>
-            <div class="timeline-sub">
-              Chittagong College · GPA 4.75 (Science)
+        <!-- HSC – right -->
+        <div class="timeline-item right">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-card">
+              <div class="badge-row">
+                <span class="badge">2016 – 2018</span>
+                <span class="badge badge-muted">Education</span>
+              </div>
+              <div class="timeline-title">Higher Secondary Certificate</div>
+              <div class="timeline-sub">
+                Chittagong College · GPA 4.75 (Science)
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- Start University – left -->
-      <div class="timeline-item left">
-        <div class="timeline-dot"></div>
-        <div class="timeline-content">
-          <div class="timeline-card">
-            <div class="badge-row">
-              <span class="badge">2019</span>
-              <span class="badge badge-muted">Milestone</span>
-            </div>
-            <div class="timeline-title">Started University</div>
-            <div class="timeline-sub">
-              Began BSc in Electrical &amp; Electronic Engineering at AUST.
+        <!-- Start University – left -->
+        <div class="timeline-item left">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-card">
+              <div class="badge-row">
+                <span class="badge">2019</span>
+                <span class="badge badge-muted">Milestone</span>
+              </div>
+              <div class="timeline-title">Started University</div>
+              <div class="timeline-sub">
+                Began BSc in Electrical &amp; Electronic Engineering at AUST.
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- Industrial Training – right -->
-      <div class="timeline-item right">
-        <div class="timeline-dot"></div>
-        <div class="timeline-content">
-          <div class="timeline-card">
-            <div class="badge-row">
-              <span class="badge">2023</span>
-              <span class="badge badge-muted">Milestone</span>
-            </div>
-            <div class="timeline-title">Industrial Training</div>
-            <div class="timeline-sub">
-              Ulterior Engineering Ltd – Motor controlling techniques with project
-              (RLC, MCC, and industrial electrical devices).
+        <!-- Industrial Training – right -->
+        <div class="timeline-item right">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-card">
+              <div class="badge-row">
+                <span class="badge">2023</span>
+                <span class="badge badge-muted">Milestone</span>
+              </div>
+              <div class="timeline-title">Industrial Training</div>
+              <div class="timeline-sub">
+                Ulterior Engineering Ltd – Motor controlling techniques with project
+                (RLC, MCC, and industrial electrical devices).
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- Bachelor’s Degree – left -->
-      <div class="timeline-item left">
-        <div class="timeline-dot"></div>
-        <div class="timeline-content">
-          <div class="timeline-card">
-            <div class="badge-row">
-              <span class="badge">2023</span>
-              <span class="badge badge-muted">Education</span>
-            </div>
-            <div class="timeline-title">Bachelor’s Degree</div>
-            <div class="timeline-sub">
-              BSc in Electrical &amp; Electronic Engineering (EEE), AUST.
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Undergraduate Thesis – right -->
-      <div class="timeline-item right">
-        <div class="timeline-dot"></div>
-        <div class="timeline-content">
-          <div class="timeline-card">
-            <div class="badge-row">
-              <span class="badge">2023</span>
-              <span class="badge badge-muted">Publication</span>
-            </div>
-            <div class="timeline-title">Undergraduate Thesis</div>
-            <div class="timeline-sub">
-              Design, Development and Testing of a Low-Cost Telescope under
-              Adverse Environmental Conditions.
+        <!-- Bachelor’s Degree – left -->
+        <div class="timeline-item left">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-card">
+              <div class="badge-row">
+                <span class="badge">2023</span>
+                <span class="badge badge-muted">Education</span>
+              </div>
+              <div class="timeline-title">Bachelor’s Degree</div>
+              <div class="timeline-sub">
+                BSc in Electrical &amp; Electronic Engineering (EEE), AUST.
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-    </div><!-- /.timeline -->
-  </div><!-- /.card -->
-</section>
+        <!-- Undergraduate Thesis – right -->
+        <div class="timeline-item right">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-card">
+              <div class="badge-row">
+                <span class="badge">2023</span>
+                <span class="badge badge-muted">Publication</span>
+              </div>
+              <div class="timeline-title">Undergraduate Thesis</div>
+              <div class="timeline-sub">
+                Design, Development and Testing of a Low-Cost Telescope under
+                Adverse Environmental Conditions.
+              </div>
+            </div>
+          </div>
+        </div>
 
+      </div><!-- /.timeline -->
+    </div><!-- /.card -->
+  </section>
 
   <!-- RESEARCH INTERESTS -->
   <section id="research" class="section reveal">
     <h2 class="section-title">Research Interests</h2>
     <div class="card">
+      <p class="muted" style="text-align:center;">
+        I am particularly interested in problems at the intersection of embedded
+        intelligence, sensing, and sustainable energy systems.
+      </p>
       <div class="pill-row">
         <span class="pill">Embedded Imaging Systems</span>
-        <span class="pill">Image Processing & Computer Vision</span>
+        <span class="pill">Image Processing &amp; Computer Vision</span>
         <span class="pill">Renewable Energy Systems</span>
         <span class="pill">Battery Energy Storage (BESS)</span>
         <span class="pill">Hybrid Storage (HESS)</span>
-        <span class="pill">Biomass & Biofuel Technologies</span>
+        <span class="pill">Biomass &amp; Biofuel Technologies</span>
         <span class="pill">Smart Grid Optimization</span>
       </div>
     </div>
@@ -569,7 +633,7 @@
       <h3>Journal Articles</h3>
       <ul>
         <li>“A Comprehensive Review of Biomass and Biofuels…” — ECMX, 2025 (Published)</li>
-        <li>“Battery Recycling & Second-Life Batteries…” — ECMX, 2025 (Under Review)</li>
+        <li>“Battery Recycling &amp; Second-Life Batteries…” — ECMX, 2025 (Under Review)</li>
       </ul>
     </div>
   </section>
@@ -620,19 +684,22 @@
 
   <!-- TRAINING -->
   <section id="training" class="section reveal">
-    <h2 class="section-title">Training & Activities</h2>
+    <h2 class="section-title">Training &amp; Activities</h2>
     <div class="card">
       <h3>Certifications</h3>
       <ul>
         <li>Motor Controlling Techniques with Project — Ulterior Engineering Ltd (2023)</li>
-        <li>Create Charts & Dashboards (Excel) — Coursera (2023)</li>
+        <li>Create Charts &amp; Dashboards (Excel) — Coursera (2023)</li>
       </ul>
     </div>
 
     <div class="card">
       <h3>Academic Activities</h3>
       <ul>
-        <li>Poster Presentation — Low-Cost Telescope (AUST, Oct 2023)</li>
+        <li>
+          Poster Presentation — <em>Design, Development, and Testing of a Low-Cost Telescope
+          under Adverse Environmental Conditions</em> (AUST, Oct 2023)
+        </li>
       </ul>
     </div>
   </section>
@@ -658,6 +725,7 @@
 <script>
   document.getElementById("year").textContent = new Date().getFullYear();
 
+  // reveal animation for hero, sections, and cards
   const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -669,6 +737,7 @@
 
   document.querySelectorAll(".reveal").forEach(el => revealObserver.observe(el));
 
+  // timeline animation
   const timelineObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
