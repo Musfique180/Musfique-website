@@ -103,17 +103,19 @@
 
     /* HERO NAME — FIXED CENTERING */
     .hero-name {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2.4rem, 4vw, 3.5rem);
-      font-weight: 700;
-      line-height: 1.15;
-      color: #2b2b2b;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.4rem, 4vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.15;
+  color: #2b2b2b;
+  max-width: 18ch;
+  margin: 1.4rem auto 0.4rem;
+  text-align: center;
 
-      /* Center the whole name block */
-      max-width: 18ch;
-      margin: 1.4rem auto 0.4rem;
-      text-align: center;
-    }
+  /* SHIFT NAME SLIGHTLY LEFT */
+  transform: translateX(-20px); /* adjust value if needed */
+}
+
 
     .hero-name .name-line1,
     .hero-name .name-line2 {
