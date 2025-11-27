@@ -101,7 +101,7 @@
       color: var(--muted-soft);
     }
 
-    /* HERO NAME — slightly left but still visually centered */
+    /* HERO NAME – two lines, slightly left-shifted */
     .hero-name {
       font-family: 'Playfair Display', serif;
       font-size: clamp(2.4rem, 4vw, 3.5rem);
@@ -111,7 +111,7 @@
       max-width: 18ch;
       margin: 1.4rem auto 0.4rem;
       text-align: center;
-      transform: translateX(-10px); /* small left shift as you wanted */
+      transform: translateX(-10px); /* shift a bit left */
     }
 
     .hero-name .name-line1,
@@ -129,12 +129,19 @@
       font-weight: 800;
     }
 
+    .hero-submeta {
+      font-size: 0.9rem;
+      color: var(--muted-soft);
+      margin-top: 0.1rem;
+    }
+
     /* Buttons */
     .hero-buttons {
       display: flex;
       justify-content: center;
       gap: 0.8rem;
       margin: 1.2rem 0;
+      flex-wrap: wrap;
     }
 
     .btn {
@@ -144,12 +151,14 @@
       border: 1px solid transparent;
       cursor: pointer;
       text-decoration: none;
+      white-space: nowrap;
     }
 
     .btn-primary {
       background: var(--accent);
       color: #fff;
       box-shadow: 0 10px 22px rgba(70, 44, 22, 0.25);
+      border-color: var(--accent-soft);
     }
 
     .btn-outline {
@@ -158,38 +167,37 @@
       color: var(--muted);
     }
 
-    .hero-submeta {
-      font-size: 0.9rem;
-      color: var(--muted-soft);
-    }
+    /* SHARED SECTION STYLES */
+    main { background: var(--bg); }
 
-    /* SECTIONS */
     .section {
       max-width: var(--max-width);
       margin: 0 auto;
       padding: 3rem 1.6rem 0;
     }
 
-    /* Centered section titles */
+    /* Centered section titles with lines on both sides */
     .section-title {
       font-size: 1.25rem;
       text-transform: uppercase;
       letter-spacing: 0.11em;
       color: var(--muted-soft);
-      margin-bottom: 1.1rem;
+      margin: 0 auto 1.4rem;
       display: flex;
       align-items: center;
-      justify-content: center;   /* centers the whole title block */
-      gap: 0.5rem;
+      justify-content: center;
+      gap: 0.75rem;
       text-align: center;
     }
 
-    .section-title:before {
+    .section-title::before,
+    .section-title::after {
       content: "";
       width: 40px;
       height: 2px;
       background: var(--accent);
       border-radius: 999px;
+      opacity: 0.8;
     }
 
     .card {
@@ -201,22 +209,13 @@
       margin-bottom: 1.6rem;
     }
 
-    /* About text justification */
     .card p {
-      text-align: justify;
-      text-justify: inter-word;
-      margin-bottom: 0.6rem;
+      margin-bottom: 0.7rem;
+      text-align: justify;          /* better paragraph shape */
     }
 
     .card p:last-child {
       margin-bottom: 0;
-    }
-
-    h3 {
-      font-family: "Playfair Display", serif;
-      font-size: 1.08rem;
-      margin-bottom: 0.35rem;
-      color: #3a322c;
     }
 
     .muted {
@@ -235,23 +234,25 @@
     .pill-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.45rem;
-      margin-top: 0.6rem;
-      justify-content: center;   /* center-align research pills etc. */
+      gap: 0.55rem;
+      margin-top: 0.8rem;
+      justify-content: flex-start;
     }
 
     .pill {
       border-radius: 999px;
       border: 1px solid #ddd2c5;
       font-size: 0.82rem;
-      padding: 0.25rem 0.65rem;
+      padding: 0.25rem 0.7rem;
       color: var(--muted);
       background: #faf7f3;
     }
 
-    /* Make Research card more balanced */
-    #research .card {
-      text-align: center;
+    h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.08rem;
+      margin-bottom: 0.4rem;
+      color: #3a322c;
     }
 
     /* TIMELINE – animated vertical layout (center line + left/right cards) */
@@ -375,13 +376,84 @@
         margin: 0 0 0 2.2rem;
         padding: 0 0 0 1.2rem;
       }
-
-      .hero-name {
-        transform: none; /* avoid weird shift on very small screens */
-      }
     }
 
-    /* Section/card reveal animation */
+    /* PROJECTS – thesis + grid cards */
+    .thesis-card {
+      position: relative;
+      border-left: 4px solid var(--accent);
+    }
+
+    .thesis-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 0.6rem;
+      font-size: 0.8rem;
+    }
+
+    .thesis-badge {
+      padding: 0.2rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid #e4d4c3;
+      background: #f9f2ea;
+      color: #8a5b2f;
+      font-weight: 500;
+    }
+
+    .thesis-badge.primary {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent-soft);
+    }
+
+    .thesis-title {
+      margin-bottom: 0.4rem;
+      font-size: 1.1rem;
+    }
+
+    .thesis-text {
+      margin-bottom: 0.4rem;
+    }
+
+    .thesis-supervisor {
+      margin-top: 0.3rem;
+      font-size: 0.9rem;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.6rem;
+      margin-top: 1.8rem;
+    }
+
+    .project-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 0; /* grid already has gap */
+    }
+
+    .project-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      background: rgba(182, 122, 75, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .project-body p {
+      text-align: left;
+      font-size: 0.93rem;
+    }
+
+    /* SCROLL REVEAL */
     .reveal {
       opacity: 0;
       transform: translateY(26px);
@@ -399,6 +471,7 @@
       background: #f0ebe4;
       text-align: center;
       color: var(--muted-soft);
+      font-size: 0.86rem;
     }
   </style>
 </head>
@@ -413,7 +486,7 @@
       <a href="#publications">Publications</a>
       <a href="#projects">Projects</a>
       <a href="#skills">Skills</a>
-      <a href="#training">Training & Activities</a>
+      <a href="#training">Training &amp; Activities</a>
       <a href="#contact">Contact</a>
     </nav>
   </div>
@@ -427,7 +500,7 @@
       alt="Mohammed Musfique Ahmed Chowdhury"
     />
 
-    <div class="hero-chip">Electrical & Electronic Engineering Graduate</div>
+    <div class="hero-chip">Electrical &amp; Electronic Engineering Graduate</div>
 
     <!-- Name in two lines -->
     <h1 class="hero-name">
@@ -445,7 +518,7 @@
     </div>
 
     <p class="hero-submeta">
-      BSc in Electrical & Electronic Engineering, AUST, Dhaka.
+      BSc in Electrical &amp; Electronic Engineering, AUST, Dhaka.
     </p>
   </div>
 </section>
@@ -591,7 +664,7 @@
             <div class="timeline-card">
               <div class="badge-row">
                 <span class="badge">2023</span>
-                <span class="badge badge-muted">Publication</span>
+                <span class="badge badge-muted">Thesis</span>
               </div>
               <div class="timeline-title">Undergraduate Thesis</div>
               <div class="timeline-sub">
@@ -611,8 +684,8 @@
     <h2 class="section-title">Research Interests</h2>
     <div class="card">
       <p class="muted" style="text-align:center;">
-        I am particularly interested in problems at the intersection of embedded
-        intelligence, sensing, and sustainable energy systems.
+        I am particularly interested in problems at the intersection of embedded intelligence,
+        sensing, and sustainable energy systems.
       </p>
       <div class="pill-row">
         <span class="pill">Embedded Imaging Systems</span>
@@ -632,8 +705,8 @@
     <div class="card">
       <h3>Journal Articles</h3>
       <ul>
-        <li>“A Comprehensive Review of Biomass and Biofuels…” — ECMX, 2025 (Published)</li>
-        <li>“Battery Recycling &amp; Second-Life Batteries…” — ECMX, 2025 (Under Review)</li>
+        <li>“A Comprehensive Review of Biomass and Biofuels and Their Progress Using Digital Technologies” — <em>Energy Conversion and Management: X</em>, 2025 (Published, co-author).</li>
+        <li>“A Comprehensive Review of Battery Recycling and Second-Life Batteries: Advancements, Challenges, Solutions and Future Prospects” — <em>Energy Conversion and Management: X</em>, 2025 (Under review, co-author).</li>
       </ul>
     </div>
   </section>
@@ -641,21 +714,72 @@
   <!-- PROJECTS -->
   <section id="projects" class="section reveal">
     <h2 class="section-title">Projects</h2>
-    <div class="card">
-      <h3>Undergraduate Thesis</h3>
-      <p class="muted">
-        Design and development of a low-cost telescope under adverse conditions.
+
+    <!-- Thesis card -->
+    <div class="card thesis-card">
+      <div class="thesis-badges">
+        <span class="thesis-badge primary">Undergraduate Thesis</span>
+        <span class="thesis-badge">Dec 2022 – Nov 2023</span>
+      </div>
+      <h3 class="thesis-title">Design, Development and Testing of Low-Cost Telescope Under Adverse Environment Conditions</h3>
+      <p class="thesis-text muted">
+        Introduced an affordable, adaptable telescope design for astronomical observation in
+        challenging environments. Integrated optics, mechanics, control electronics and image
+        processing to achieve reliable, high-resolution observations under low-light and adverse
+        atmospheric conditions.
+      </p>
+      <p class="thesis-supervisor muted">
+        <strong>Supervisor:</strong> Dr. A.K.M. Ehtesanul Islam
       </p>
     </div>
 
-    <div class="card">
-      <h3>Selected Academic Projects</h3>
-      <ul>
-        <li>Arduino-Controlled 12V Smart Battery Charger</li>
-        <li>Comparative Analysis of 10T/14T/16T CMOS Adders</li>
-        <li>Voltage Stabilizer with Short-Circuit Protection</li>
-        <li>Obstacle-Avoiding Autonomous Robot</li>
-      </ul>
+    <!-- Grid of other academic projects -->
+    <div class="projects-grid">
+      <article class="card project-card">
+        <div class="project-icon">🔋</div>
+        <div class="project-body">
+          <h3>Arduino-Controlled 12V Smart Battery Charger</h3>
+          <p class="muted">
+            Designed a smart 12V battery charger with step-down conversion, full-wave rectification,
+            LM338 regulation and Arduino-based monitoring to manage battery health and protection
+            features.
+          </p>
+        </div>
+      </article>
+
+      <article class="card project-card">
+        <div class="project-icon">⚙️</div>
+        <div class="project-body">
+          <h3>Comparative Analysis of 10T, 14T and 16T CMOS Adders</h3>
+          <p class="muted">
+            Implemented 10T/14T/16T full adders in CMOS, verified using Cadence ADE and carried out
+            layout-level comparisons of delay, power and area for VLSI optimization.
+          </p>
+        </div>
+      </article>
+
+      <article class="card project-card">
+        <div class="project-icon">⚡</div>
+        <div class="project-body">
+          <h3>Voltage Stabilizer with Short-Circuit Protection</h3>
+          <p class="muted">
+            Developed a relay-based stabilizer to maintain safe output voltage for household
+            appliances and automatically disconnect the load during over-voltage or short-circuit
+            events.
+          </p>
+        </div>
+      </article>
+
+      <article class="card project-card">
+        <div class="project-icon">🤖</div>
+        <div class="project-body">
+          <h3>Obstacle-Avoiding Autonomous Robot</h3>
+          <p class="muted">
+            Built an Arduino-based mobile robot that uses ultrasonic sensing to detect obstacles and
+            navigate around them autonomously.
+          </p>
+        </div>
+      </article>
     </div>
   </section>
 
@@ -665,18 +789,25 @@
     <div class="card">
       <h3>Technical</h3>
       <div class="pill-row">
-        <span class="pill">C++</span><span class="pill">MATLAB</span><span class="pill">Simulink</span>
-        <span class="pill">PSpice</span><span class="pill">Tinkercad</span>
-        <span class="pill">Quartus II</span><span class="pill">Cadence Virtuoso</span>
-        <span class="pill">Proteus</span><span class="pill">AutoCAD</span>
+        <span class="pill">C++</span>
+        <span class="pill">MATLAB</span>
+        <span class="pill">Simulink</span>
+        <span class="pill">PSpice</span>
+        <span class="pill">Tinkercad</span>
+        <span class="pill">Quartus II</span>
+        <span class="pill">Cadence Virtuoso</span>
+        <span class="pill">Proteus</span>
+        <span class="pill">AutoCAD</span>
       </div>
 
-      <h3 style="margin-top:1rem;">Professional</h3>
+      <h3 style="margin-top:1rem;">Professional &amp; Interpersonal</h3>
       <div class="pill-row">
         <span class="pill">Analytical Thinking</span>
+        <span class="pill">Problem Solving</span>
         <span class="pill">Teamwork</span>
-        <span class="pill">Leadership</span>
         <span class="pill">Communication</span>
+        <span class="pill">Project Management</span>
+        <span class="pill">Leadership</span>
         <span class="pill">Adaptability</span>
       </div>
     </div>
@@ -686,10 +817,16 @@
   <section id="training" class="section reveal">
     <h2 class="section-title">Training &amp; Activities</h2>
     <div class="card">
-      <h3>Certifications</h3>
+      <h3>Specialized Training &amp; Certifications</h3>
       <ul>
-        <li>Motor Controlling Techniques with Project — Ulterior Engineering Ltd (2023)</li>
-        <li>Create Charts &amp; Dashboards (Excel) — Coursera (2023)</li>
+        <li>
+          <strong>Motor Controlling Techniques with Project</strong> — Ulterior Engineering Ltd,
+          July 2023. Hands-on training on motor control, protection and practical implementation.
+        </li>
+        <li>
+          <strong>Create Charts and Dashboards Using Microsoft Excel</strong> — Coursera,
+          December 2023. Focused on data visualization and dashboard design for analytical reporting.
+        </li>
       </ul>
     </div>
 
@@ -697,8 +834,9 @@
       <h3>Academic Activities</h3>
       <ul>
         <li>
-          Poster Presentation — <em>Design, Development, and Testing of a Low-Cost Telescope
-          under Adverse Environmental Conditions</em> (AUST, Oct 2023)
+          Poster presentation of
+          <em>“Design, Development, and Testing of a Low-Cost Telescope under Adverse Environmental
+          Conditions”</em> at AUST (October 2023).
         </li>
       </ul>
     </div>
@@ -708,9 +846,14 @@
   <section id="contact" class="section reveal">
     <h2 class="section-title">Contact</h2>
     <div class="card">
+      <p>
+        I am currently preparing for PhD applications for Fall 2026 and welcome opportunities
+        to collaborate on research in embedded systems, imaging, and sustainable energy
+        technologies.
+      </p>
       <ul>
-        <li><strong>Email:</strong> musfiqueahmed7@gmail.com</li>
-        <li><strong>Phone:</strong> +8801631126180</li>
+        <li><strong>Email:</strong> <a href="mailto:musfiqueahmed7@gmail.com">musfiqueahmed7@gmail.com</a></li>
+        <li><strong>Phone / WhatsApp:</strong> +880 16 3112 6180</li>
         <li><strong>Location:</strong> Chattogram, Bangladesh</li>
       </ul>
     </div>
@@ -725,7 +868,7 @@
 <script>
   document.getElementById("year").textContent = new Date().getFullYear();
 
-  // reveal animation for hero, sections, and cards
+  /* Scroll reveal for hero, sections & cards */
   const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -737,7 +880,7 @@
 
   document.querySelectorAll(".reveal").forEach(el => revealObserver.observe(el));
 
-  // timeline animation
+  /* Timeline scroll animation */
   const timelineObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
