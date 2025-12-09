@@ -93,15 +93,16 @@
     .hero-right {
       flex: 0.9;
       display: flex;
-      justify-content: flex-end; /* Align the image to the right */
+      justify-content: center;
       align-items: center;
     }
 
+    /* SQUARE, LARGER, PROFESSIONAL PHOTO */
     .hero-avatar {
-      width: 360px; /* Increased size for a more professional look */
-      height: 360px; /* Ensures the image is a square */
-      border-radius: 50%; /* Keeps the rounded shape */
-      object-fit: cover; /* Ensures the image fills the square */
+      width: 360px;
+      height: 360px;
+      border-radius: 18px;      /* square with slightly rounded corners */
+      object-fit: cover;
       border: 6px solid #e5d6c5;
       background: #fdf7f0;
       box-shadow: 0 24px 55px rgba(52, 38, 26, 0.35);
@@ -208,9 +209,11 @@
         justify-content: center;
       }
 
+      /* square but a bit smaller on mobile */
       .hero-avatar {
-        width: 240px;
-        height: 240px;
+        width: 260px;
+        height: 260px;
+        border-radius: 16px;
       }
 
       .hero-tagline {
@@ -302,124 +305,44 @@
       background: #faf7f3;
     }
 
-    /* SCROLL REVEAL */
-    .reveal {
+    /* TIMELINE – alternating layout */
+    .timeline {
+      position: relative;
+      margin-top: 1.5rem;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: rgba(114, 149, 112, 0.5);
+      transform: translateX(-50%);
+    }
+
+    .timeline-item {
+      position: relative;
+      width: 100%;
+      margin: 2.4rem 0;
       opacity: 0;
       transform: translateY(26px);
       transition: opacity 0.5s ease-out, transform 0.5s ease-out;
     }
 
-    .reveal.visible {
+    .timeline-item.visible {
       opacity: 1;
       transform: translateY(0);
     }
 
-    footer {
-      margin-top: 3rem;
-      padding: 2rem;
-      background: #f0ebe4;
-      text-align: center;
-      color: var(--muted-soft);
-      font-size: 0.86rem;
-    }
-  </style>
-</head>
-<body id="top">
-
-<header>
-  <div class="nav-inner">
-    <nav class="nav-links">
-      <a href="#about">About</a>
-      <a href="#timeline">Timeline</a>
-      <a href="#research">Research</a>
-      <a href="#thesis">Thesis</a>
-      <a href="#publications">Publications</a>
-      <a href="#research-progress">Research in Progress</a>
-      <a href="#projects">Projects</a>
-      <a href="#skills">Skills</a>
-      <a href="#training">Training &amp; Activities</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </div>
-</header>
-
-<section class="hero-wrapper">
-  <div class="hero reveal">
-    <!-- LEFT: text -->
-    <div class="hero-left">
-      <div class="hero-chip">Electrical &amp; Electronic Engineering Graduate</div>
-
-      <h1 class="hero-name">
-        <span class="name-line1">
-          Mohammed <span class="highlight">Musfique</span> Ahmed
-        </span>
-        <span class="name-line2">Chowdhury</span>
-      </h1>
-
-      <p class="hero-tagline">
-        Embedded systems, imaging, and <strong>renewable energy</strong> — aspiring PhD student (Fall 2026)
-        focused on intelligent energy systems and sensing-driven applications.
-      </p>
-
-      <div class="hero-buttons">
-        <a class="btn btn-primary"
-           href="https://drive.google.com/file/d/1hr8FjNgkM1RtTYowJpcsak1SseIwYMJj/view?usp=sharing"
-           target="_blank" rel="noopener noreferrer">Download CV</a>
-        <a class="btn btn-outline" href="#contact">Contact Me</a>
-      </div>
-
-      <p class="hero-submeta">
-        BSc in Electrical &amp; Electronic Engineering, Ahsanullah University of Science and Technology (AUST), Dhaka.
-      </p>
-    </div>
-
-    <!-- RIGHT: big photo -->
-    <div class="hero-right">
-      <img
-        class="hero-avatar"
-        src="https://raw.githubusercontent.com/Musfique180/Musfique-website/main/IMG-20250515-WA0202~2%20(1)%20(1).jpg"
-        alt="Mohammed Musfique Ahmed Chowdhury"
-      />
-    </div>
-  </div>
-</section>
-
-<main>
-  <!-- Sections omitted for brevity -->
-</main>
-
-<footer>
-  © <span id="year"></span> Mohammed Musfique Ahmed Chowdhury · <a href="#top">Back to top</a>
-</footer>
-
-<script>
-  // Footer year
-  document.getElementById("year").textContent = new Date().getFullYear();
-
-  // Scroll reveal for hero, sections & cards
-  const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-        revealObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.15 });
-
-  document.querySelectorAll(".reveal").forEach(el => revealObserver.observe(el));
-
-  // Timeline scroll animation
-  const timelineObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-        timelineObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.2 });
-
-  document.querySelectorAll(".timeline-item").forEach(el => timelineObserver.observe(el));
-</script>
-
-</body>
-</html>
+    .timeline-dot {
+      position: absolute;
+      left: 50%;
+      top: 24px;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: #4a8f5b;
+      border: 3px solid #e5f2e7;
+      box-shadow: 0 0 0 5px rgba(74,
